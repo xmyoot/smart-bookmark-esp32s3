@@ -64,7 +64,7 @@ on the board; the rest change values or firmware only.
 | Q3 | Where is the button on the face, and is it a flexing skin or a separate cap? | Centre line of the board, 31.5 mm from the antenna end; 2.0 mm tall tactile switch |
 | Q4 | Where does sound enter? | A hole in the back face. The mic is a bottom-port part on the top side, so sound comes through a 0.5 mm hole in the PCB at x 33.2, y 26.7 mm |
 | Q5 | Which cell (or what capacity and maximum thickness)? Does it carry its own protection board? | 25 x 30 x 2.5 mm pouch cell, about 150–200 mAh, fixed to the bare back of the board, wires to two solder pads. Board has its own protection and charges at 100 mA |
-| Q6 | How long is a typical clip, and how many must the bookmark hold before it next meets the phone? | Clips under one minute; about 8 minutes of total backlog (internal flash). A 16 MB flash footprint is on the board, unpopulated, for about 40 minutes |
+| Q6 | How long is a typical clip, and how many must the bookmark hold before it next meets the phone? | Clips under one minute; a 16 MB flash chip is fitted, giving about 40 minutes of total backlog once the firmware uses it (about 8 minutes on the module's own flash until then) |
 | Q7 | Where should the LED show, and what colour? | One red LED, top-left of the face, next to the module |
 | Q8 | iOS, Android, or both? Does the app need to sync in the background? | Both; app connects when the user opens it, or within 30 s of a recording |
 | Q9 | Which markets and certifications for the Kickstarter (FCC, CE, UKCA, others)? | FCC and CE. A pre-certified module is used so the radio certification can be leveraged |

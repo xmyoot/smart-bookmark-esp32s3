@@ -47,6 +47,10 @@ plugging in USB. `platformio.ini` is provided as an alternative (`pio run -t upl
 
 ## Status
 
+**The external 16 MB flash (U6) is not used yet.** Clips are stored on the module's own flash
+(about 8.5 minutes). Using U6 needs an `esp_flash` device on SPI2, a second LittleFS partition
+registered on it, and a deep power-down command before sleep.
+
 Written against the Rev A schematic. **Not yet run on hardware** (no boards exist yet); see
 `../docs/testing.md` for the bring-up order and the items to tune on the first article
 (microphone slot and gain, battery calibration, sleep current).

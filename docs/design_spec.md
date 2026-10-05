@@ -14,9 +14,9 @@ of them. Tags: **[CLIENT]** from the request, **[DS]** from a datasheet in `data
 | Board about 37 x 52 mm in a 40 x 55 x 8 mm head [CLIENT] | 37.0 x 52.0 mm, R2 corners, 0.8 mm, 4 layers |
 | ESP32-S3 with BLE [CLIENT] | ESP32-S3-MINI-1-N8 module (8 MB flash, PCB antenna, pre-certified) |
 | Button, LED, PDM mic as the prototype [CLIENT] | SW1 on GPIO1, D1 on GPIO2 (same GPIOs as XIAO D0/D1), T3902 PDM mic |
-| Storage, SD replaceable by flash [CLIENT] | Module flash, LittleFS partition; optional 16 MB NOR footprint U6 (DNP) |
+| Storage, SD replaceable by flash [CLIENT] | Module flash (LittleFS) plus a 16 MB NOR flash, U6, fitted |
 | Thin LiPo, USB-C charging, battery level [CLIENT] | MCP73832 100 mA charger, DW01A + FS8205A protection, switched divider to ADC1 |
-| Deep sleep, weeks of standby [CLIENT] | About 14 µA typical in deep sleep (section 5) |
+| Deep sleep, weeks of standby [CLIENT] | About 15 µA typical in deep sleep (section 5) |
 | JLCPCB assembly [CLIENT] | All parts on the top side, every part in stock at JLCPCB [JLC] |
 
 ## 2. Parts
@@ -33,7 +33,7 @@ of them. Tags: **[CLIENT]** from the request, **[DS]** from a datasheet in `data
 | SW1 | TS-1088-AR02016 | C720477 | 3.9 x 3.0 x 2.0 mm | 1.6 N tactile, JLCPCB basic part |
 | D1 | KT-0603R red | C2286 | 0603 | Basic part |
 | Q2 / Q3 | AO3401A / 2N7002 | C15127 / C8545 | SOT-23 | Battery-sense switch, basic parts |
-| U6 (DNP) | W25Q128JVPIQ | C190862 | WSON-8 6 x 5 mm | Optional 16 MB clip store |
+| U6 | W25Q128JVPIQ | C190862 | WSON-8 6 x 5 mm | 16 MB clip store (fitted; decided 2026-10-05) |
 | Passives | 0402 resistors, 0402/0603/0805 capacitors | see BOM | | All JLCPCB basic parts |
 
 Rejected: ESP32-C3/C6 (no hardware PDM-to-PCM filter), nRF52840 (lower power, but a new SDK and a
@@ -49,10 +49,10 @@ cards), fuel-gauge IC (3–23 µA continuous, more than the rest of the board as
 | 1 | 5 | BTN_N | in | SW1 to GND, internal pull-up, RTC wake (ext0, low). Same as XIAO D0 |
 | 2 | 6 | LED | out | Active high, 1 kΩ, about 1.3 mA. Same as XIAO D1 |
 | 5 | 9 | BAT_ADC | analog | ADC1_CH4, reads +BATT / 2 while BAT_SENSE_EN is high |
-| 10 | 14 | FLASH_MISO | in | Optional U6 |
-| 11 | 15 | FLASH_CS | out | Optional U6 |
-| 12 | 16 | FLASH_SCK | out | Optional U6 |
-| 13 | 17 | FLASH_MOSI | out | Optional U6 |
+| 10 | 14 | FLASH_MISO | in | U6 clip flash |
+| 11 | 15 | FLASH_CS | out | U6 clip flash |
+| 12 | 16 | FLASH_SCK | out | U6 clip flash |
+| 13 | 17 | FLASH_MOSI | out | U6 clip flash |
 | 16 | 20 | BAT_SENSE_EN | out | High = divider connected. 100 kΩ pull-down |
 | 17 | 21 | CHG_STAT_N | in | Open-drain from U3: low = charging. Use the internal pull-up |
 | 18 | 22 | VBUS_DET | in | VBUS / 2. High = USB present. RTC GPIO, can wake (ext1) |
@@ -92,8 +92,9 @@ USB-C VBUS ──► U3 MCP73832 (100 mA) ──► +BATT ──► U5 RT9080 �
 | LDO quiescent | 2 µA | U5 [DS] |
 | Protection IC | 3 µA | U4 [DS] |
 | Charger reverse leakage | 0.15 µA | U3 [DS] |
-| Mic, divider, LED, flash U6 | 0 | Unpowered or not fitted |
-| **Standby total** | **about 14 µA** | 150 mAh / 14 µA is over a year on paper; cell self-discharge will dominate |
+| Mic, divider, LED | 0 | Unpowered |
+| Flash U6 in deep power-down | about 1 µA | Winbond figure from memory, datasheet not downloaded: **verify**. About 10 µA if firmware leaves it in standby [JLC listing] |
+| **Standby total** | **about 15 µA** | 150 mAh / 15 µA is over a year on paper; cell self-discharge will dominate |
 | Recording | about 40 mA | CPU at 80 MHz, mic, flash writes [DS table 6-6, estimate] |
 | BLE transfer | about 80 mA average | Radio duty cycle estimate; to be measured |
 
@@ -106,8 +107,9 @@ estimates and are first-article measurements in `testing.md`.
 - 16 kHz, 16-bit mono from the I2S PDM receiver, encoded to IMA ADPCM (4 bits per sample,
   8 kB/s). A 20 s clip is 160 kB.
 - Module flash, 8 MB: two 1.75 MB application slots (OTA), 4.4 MB LittleFS. That holds about
-  **8.5 minutes** of audio in total. If the client needs more (Q6), fit U6 for about 33 more
-  minutes, or drop OTA for 12 minutes.
+  **8.5 minutes** of audio in total. U6 adds 16 MB, about 33 more
+  minutes, for roughly 40 minutes in total. **The firmware does not use U6 yet**: clips still go to
+  the module flash until a driver and second filesystem are added.
 
 ## 7. Mechanical
 

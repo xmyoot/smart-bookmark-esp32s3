@@ -53,6 +53,15 @@ The application circuit each IC is built to, where it comes from, and any deviat
 - At least 1 µF effective on input and output. Here C4 and C5, 10 µF 0603.
 - EN tied to VIN: always on.
 
+## U6 W25Q128JVPIQ
+
+- Pins (KiCad library symbol, WSON-8): 1 /CS, 2 DO, 3 /WP, 4 GND, 5 DI, 6 CLK, 7 /HOLD, 8 VCC,
+  exposed pad to GND. The Winbond datasheet was not downloaded; the pinout is the standard
+  25-series one.
+- 100 nF at VCC (C12). /CS pulled up by R16 (100 kΩ) so the chip stays deselected while the
+  MCU pins float in deep sleep. /WP and /HOLD pulled up by R18, R19 (10 kΩ).
+- On SPI2: GPIO12 SCK, GPIO13 MOSI, GPIO10 MISO, GPIO11 CS.
+
 ## U2 USBLC6-2SC6 — `USBLC6-2.pdf`
 
 - Pins: 1 and 6 I/O1, 3 and 4 I/O2, 2 GND, 5 VBUS. D− passes through 1/6, D+ through 3/4.

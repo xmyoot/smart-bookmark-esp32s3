@@ -173,6 +173,13 @@ SILK_REF = {   # ref: (x, y) of the text centre, top side
     "J1": (27.3, 36.9), "U2": (23.4, 38.9), "U3": (15.2, 49.4), "U4": (4.0, 39.4), "Q1": (4.0, 49.2),
     "U5": (26.0, 47.25), "Q2": (9.9, 31.0), "Q3": (9.9, 40.7),
 }
+SECTION_LABELS = [   # what each cluster of parts is, in plain words, placed in clear board area
+    ("KEEP CLEAR", 5.4, 2.7), ("ANTENNA", 31.6, 2.7),
+    ("ESP32-S3 BLE", 18.5, 23.2), ("STATUS LED", 5.3, 14.3), ("16MB FLASH", 7.4, 29.3),
+    ("RECORD", 18.5, 27.9), ("MIC", 33.2, 30.0), ("USB-C", 32.6, 35.0),
+    ("BATT", 3.7, 36.0), ("SENSE", 3.7, 37.2), ("PROTECT", 4.6, 50.7), ("CHARGER", 16.6, 50.8),
+    ("3V3 REG", 32.4, 50.6),
+]
 BACK_LABEL = {  # back-side pads are labelled with what they are, not their designator
     "BT1": ("BAT+", 0, 2.2), "BT2": ("BAT-", 0, 2.2), "TP7": ("VBAT", 2.6, 0),
     "TP1": ("3V3", 0, -1.5), "TP2": ("GND", 0, -1.5), "TP3": ("EN", 0, -1.5),
@@ -226,6 +233,12 @@ def tidy_text(b, fps):
             label, dx, dy = BACK_LABEL[ref]
             x, y = mm(fp.GetPosition())
             _text(b, label, x + dx, y + dy, pcbnew.B_SilkS, 0.8, mirror=True)
+    for label, x, y in SECTION_LABELS:
+        _text(b, label, x, y, pcbnew.F_SilkS, 0.8)
+    x0, y0, x1, y1 = CELL                      # where the cell goes, for whoever fits it
+    for a, c in (((x0, y0), (x1, y0)), ((x1, y0), (x1, y1)), ((x1, y1), (x0, y1)), ((x0, y1), (x0, y0))):
+        _edge(b, "line", [a, c], pcbnew.B_SilkS, 0.15)
+    _text(b, "CELL 25 x 30", 14.0, 25.0, pcbnew.B_SilkS, 1.0, mirror=True)
     _text(b, "SMART BOOKMARK  REV A", 14.0, 4.0 + 2.6, pcbnew.B_SilkS, 0.9, mirror=True)
     _text(b, "CELL AREA - NO PADS", 14.0, 25.0, pcbnew.B_Fab, 1.0, mirror=True)
 
@@ -251,7 +264,7 @@ def pad_xy(fps, ref, num):
 # Floorplan (top side, all assembled parts):
 #   y 0..5.0       antenna keep-out (module rule area, full board width, every layer)
 #   y 0..20.75     U1 centred; left strip = 3V3 decoupling + LED; right strip = EN RC + mic series parts
-#   y 21..29       left: optional flash U6 (DNP); right edge: microphone MK1 (port hole through the board)
+#   y 21..29       left: clip flash U6; right edge: microphone MK1 (port hole through the board)
 #   y 30..33       SW1 record button on the board centre line
 #   y 31..41       left of centre: battery sense (Q2/Q3)
 #   y 36..47       right edge: J1 USB-C (overhangs the edge by 1.0 mm), U2 ESD and CC resistors beside it
@@ -266,7 +279,7 @@ TOP = {
     "R13": (28.0, 6.85, 180), "C9": (27.97, 8.15, 0), "R15": (28.0, 12.8, 0), "R14": (30.5, 13.65, 0),
     # microphone + decoupling on the VDD drop
     "MK1": (33.2, 26.0, 0), "C10": (34.5, 21.6, 0), "C11": (34.5, 22.9, 0),
-    # optional flash (all DNP)
+    # clip flash and its pull-ups
     "U6": (8.0, 25.5, 0), "R16": (9.0, 19.75, 90), "R18": (3.4, 26.135, 0), "R19": (11.95, 24.0, 270),
     "C12": (9.7, 21.8, 180),
     # button

@@ -43,7 +43,7 @@ Top layer, no crossings by construction:
 - **Power status trio** from pins 20, 21, 22 down the left of SW1 at x 14.3 / 14.8 / 15.3:
   BAT_SENSE_EN → Q3 gate and R10; CHG_STAT_N → U3 pad 1 from above; VBUS_DET → under SW1 at y 34 →
   down x 19.6 → R5/R6 junction.
-- **Flash** (DNP): pins 16 / 17 down at x 13.0 / 13.5 into U6 pads 6 / 5; pins 14 / 15 left along
+- **Flash** U6: pins 16 / 17 down at x 13.0 / 13.5 into U6 pads 6 / 5; pins 14 / 15 left along
   y 17.9 / 18.75, down x 3.8 / 4.4 into U6 pads 2 / 1.
 - **Protection**: OD and BAT_N are straight vertical links U4 ↔ Q1; OC goes round the right at x 8.2;
   VM straight to R8; R7/C3 stacked on the left edge.

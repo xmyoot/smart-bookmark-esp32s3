@@ -21,11 +21,11 @@ share the files on a call.
   would mean rewriting firmware you already have working.
 - **No SD card.** Clips go to the module's own flash as compressed audio (ADPCM, a quarter the
   size of raw audio, which also makes Bluetooth sync four times faster). That removes the tallest
-  and most power-hungry part of the prototype. The board carries an unpopulated footprint for an
-  extra 16 MB flash chip if you want a longer backlog.
+  and most power-hungry part of the prototype. A 16 MB flash chip on the board
+  gives about 40 minutes of backlog between syncs.
 - **Thin LiPo, USB-C charging, on-board cell protection**, charge current matched to a small cell,
   and battery level read through a divider that is switched off in sleep.
-- **About 14 µA in deep sleep** by the datasheet figures: module 8, regulator 2, protection 3.
+- **About 15 µA in deep sleep** by the datasheet figures: module 8, regulator 2, protection 3, flash 1.
   That is months of standby on a 150 mAh cell, so in practice the cell's own self-discharge is
   the limit. Active use is what drains it: roughly six weeks at ten 20-second clips a day.
 - **Single-sided assembly, every part in stock at JLCPCB**, 4-layer 0.8 mm board, programming
@@ -82,8 +82,8 @@ that plainly.]]
 5. **Production test and programming.** At 500 units you want a simple bed-of-nails jig and a
    five-second self-test (microphone, button, LED, battery reading, radio). The test pads are on
    the board already; the jig and test firmware are a small follow-on job.
-6. **Storage.** The internal flash holds about 8.5 minutes of audio between syncs. If your users
-   may go days without opening the app, populate the extra flash footprint (about a dollar).
+6. **Storage.** The board holds about 40 minutes of audio between syncs (16 MB flash chip). If
+   your users may go weeks without opening the app, a larger NAND part fits the same interface.
 7. **Start-up delay.** Waking from deep sleep takes a few tenths of a second, so the first
    syllable after a press can be lost. The LED comes on when recording has really started; a
    "press, wait for the light, speak" habit covers it. If that is not acceptable there are

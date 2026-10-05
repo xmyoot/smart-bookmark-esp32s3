@@ -147,17 +147,16 @@ C(audio, "C11", "100nF", 220.98, 106.68, "MIC_VDD", "GND")
 audio.text("SELECT = GND: data valid after the CLK rising edge (right slot). C11 at pin 5. PCB port hole 0.8 mm under the mic.", 45.72, 139.7)
 
 # ---- storage ----------------------------------------------------------------
-storage = Sheet("storage", "Optional external SPI flash (DNP)", ["FLASH_CS", "FLASH_MOSI", "FLASH_SCK", "FLASH_MISO"])
-storage.box(60.96, 55.88, 248.92, 149.86, "U6 optional 16 MB NOR on SPI2 (FSPI pins). NOT FITTED by default: clips live on the module's 8 MB flash")
+storage = Sheet("storage", "External 16 MB SPI flash for clips", ["FLASH_CS", "FLASH_MOSI", "FLASH_SCK", "FLASH_MISO"])
+storage.box(60.96, 55.88, 248.92, 149.86, "U6 16 MB NOR on SPI2 for clip storage (about 33 min of audio on top of the module's own flash)")
 storage.part("U6", "Memory_Flash:W25Q128JVP", "W25Q128JVPIQ", 149.86, 101.6,
              {"1": "FLASH_CS", "2": "FLASH_MISO", "3": "FLASH_WP", "4": "GND", "5": "FLASH_MOSI", "6": "FLASH_SCK",
               "7": "FLASH_HOLD", "8": "+3V3", "9": "GND"},
-             footprint="Package_SON:WSON-8-1EP_6x5mm_P1.27mm_EP3.4x4.3mm", lcsc="C190862", mpn="W25Q128JVPIQ",
-             dnp=True, in_bom=False, pos=False)
-C(storage, "C12", "100nF", 205.74, 101.6, "+3V3", "GND", dnp=True)
-R(storage, "R16", "100k", 226.06, 101.6, "+3V3", "FLASH_CS", dnp=True)
-R(storage, "R18", "10k", 86.36, 124.46, "+3V3", "FLASH_WP", dnp=True)
-R(storage, "R19", "10k", 104.14, 124.46, "+3V3", "FLASH_HOLD", dnp=True)
+             footprint="Package_SON:WSON-8-1EP_6x5mm_P1.27mm_EP3.4x4.3mm", lcsc="C190862", mpn="W25Q128JVPIQ")
+C(storage, "C12", "100nF", 205.74, 101.6, "+3V3", "GND")
+R(storage, "R16", "100k", 226.06, 101.6, "+3V3", "FLASH_CS")
+R(storage, "R18", "10k", 86.36, 124.46, "+3V3", "FLASH_WP")
+R(storage, "R19", "10k", 104.14, 124.46, "+3V3", "FLASH_HOLD")
 
 # ---- ui_test ----------------------------------------------------------------
 ui = Sheet("ui_test", "Button, LED, test pads", ["BTN_N", "LED", "EN", "BOOT", "UART_TX", "UART_RX"])
