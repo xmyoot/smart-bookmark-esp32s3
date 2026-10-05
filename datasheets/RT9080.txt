@@ -1,0 +1,867 @@
+--- page 1 ---
+RT9080
+®
+DS9080-05   June  2017 www.richtek.com
+1
+©Copyright   2017 Richtek Technology Corporation. All rights reserved.                          is a registered trademark of Ric htek Technology Corporation.
+2μμμμμA IQ, 600mA Low-Dropout Linear Regulator
+Applications
+ Portable, Battery Powered Equipment
+ Ultra Low Power Microcontrollers
+ Notebook Computers
+General Description
+The RT9080 is a low-dropout (LDO) voltage regulators with
+enable function that operates from 1.2V to 5.5V. It provides
+up to 600mA of output current and offers low-power
+operation in miniaturized packaging.
+The features of low quiescent current as low as 2μA and
+almost zero disable current is ideal for powering the battery
+equipment to a longer service life. The RT9080 is stable
+with the ceramic output capacitor over its wide input range
+from 1.2V to 5.5V and the entire range of output load
+current (0mA to 600mA).
+Features
+ 2μμμμμA Ground Current at no Load
+ PSRR = 75dB at 1kHz
+ Adjustable Output Voltage Available by Specific
+Application
+ ±±±±±2% Output Accuracy
+ 600mA (VIN ≥≥≥≥≥ 2.3V) Output Current with EN
+ Low (0.1μμμμμA) Disable Current
+ 1.2V  to 5.5V Operating Input Voltage
+ Dropout Voltage : 0.31V at 600mA when VOUT ≥≥≥≥≥ 3V
+ Support Fixed Output Voltage 0.8V to 3.3V
+ Stable with Ceramic or Tantalum Capacitor
+ Current-Limit Protection
+ Over-Temperature Protection
+ TSOT-23-5 and ZQFN-4L 1x1 (ZDFN-4L 1x1)  Packages
+Available
+Marking Information
+For marking information, contact our sales representative
+directly or through a Richtek distributor located in your
+area.
+Ordering Information
+Note :
+Richtek products are :
+ RoHS compliant and compatible with the current require-
+      ments of IPC/JEDEC J-STD-020.
+ Suitable for use in SnPb or Pb-free soldering processes.
+Package Type
+J5 : TSOT-23-5
+QZ : ZQFN-4L 1x1 (Z-Type)
+        (ZDFN-4L 1x1)
+RT9080/N-
+Lead Plating System
+G : Green (Halogen Free and Pb Free)
+Output Voltage
+08 : 0.8V
+     : 
+33 : 3.3V
+Special Request : Any voltage between 
+0.8V and 3.3V under specific business 
+agreement
+Pin Function
+RT9080 : Without SNS Pin
+RT9080N : With SNS Pin
+--- page 2 ---
+RT9080
+2
+DS9080-05   June  2017www.richtek.com
+©Copyright   2017 Richtek Technology Corporation. All rights reserved.                          is a registered trademark of Ric htek Technology Corporation.
+Functional Pin Description
+Pin Configuration
+(TOP VIEW)
+TSOT-23-5
+VIN GND EN
+VOUT SNS/NC
+4
+23
+5
+ZQFN-4L 1x1 (ZDFN-4L 1x1)
+VOUT VIN
+GND EN
+1
+2 3
+4
+SGND
+5
+Pin No. 
+Pin Name Pin Function 
+TSOT-23-5 ZQFN-4L 1x1 (ZDFN-4L 1x1) 
+1 4 VIN Supply voltage input. 
+2 2 GND Ground. 
+3 3 EN Enable control input. 
+4 -- 
+SNS Output voltage sense. (RT9080N only) 
+NC No internal connection.  
+5 1 VOUT Output of the regulator.  
+-- 5 (Exposed Pad) SGND Substrate of chip. Leave floating or tie to GND.  
+ 
+--- page 3 ---
+RT9080
+3
+DS9080-05   June  2017 www.richtek.com
+©Copyright   2017 Richtek Technology Corporation. All rights reserved.                          is a registered trademark of Ric htek Technology Corporation.
+Functional Block Diagram
+Operation
+Basic Operation
+The RT9080 is a low quiescent current linear regulator
+designed especially for low external components system.
+The input voltage range is from 1.2V to 5.5V.
+The minimum required output capacitance for stable
+operation is 1μF effective capacitance after consideration
+of the temperature and voltage coefficient of the capacitor.
+Output Transistor
+The RT9080 builds in a P-MOSFET output transistor which
+provides a low switch-on resistance for low dropout voltage
+applications.
+Error Amplifier
+The Error Amplifier compares the internal reference voltage
+with the output feedback voltage from the internal divider,
+and controls the Gate voltage of P-MOSFET to support
+good line regulation and load regulation at output voltage.
+Enable
+The RT9080 delivers the output power when it is set to
+enable state. When it works in disable state, there is no
+output power and the operation quiescent current is almost
+zero.
+Current-Limit Protection
+The RT9080 provides current limit function to prevent the
+device from damages during over-load or shorted-circuit
+condition. This current is detected by an internal sensing
+transistor.
+Over-Temperature Protection
+The over-temperature protection function will turn off the
+P-MOSFET when the junction temperature exceeds 150°C
+(typ.), and the output current exceeds 80mA. Once the
+junction temperature cools down by approximately 20°C,
+the regulator will automatically resume operation.
+VIN
+GND
+EN
+VOUT
+R1
+R2
+Current/Thermal 
+Sense
+Bandgap
+Reference
+SNS 
++
+-
+(without sense  
+function)
+(with sense  
+function)
+EN
+--- page 4 ---
+RT9080
+4
+DS9080-05   June  2017www.richtek.com
+©Copyright   2017 Richtek Technology Corporation. All rights reserved.                          is a registered trademark of Ric htek Technology Corporation.
+Electrical Characteristics
+Recommended Operating Conditions   (Note 4)
+ Input Voltage, VIN --------------------------------------------------------------------------------------------------------- 1.2V to 5.5V
+ Junction Temperature Range-------------------------------------------------------------------------------------------- −40°C to 125°C
+ Ambient Temperature Range-------------------------------------------------------------------------------------------- −40°C to 85°C
+Absolute Maximum Ratings   (Note 1)
+ VIN, VOUT, SNS, EN to GND ------------------------------------------------------------------------------------------- −0.3V to 6.5V
+ VOUT to VIN---------------------------------------------------------------------------------------------------------------- −6.5V to 0.3V
+ Power Dissipation, PD @ TA = 25°C
+TSOT-23-5-------------------------------------------------------------------------------------------------------------------0.43W
+ZQFN-4L 1x1 (ZDFN-4L 1x1)--------------------------------------------------------------------------------------------0.44W
+ Package Thermal Resistance   (Note 2)
+TSOT-23-5, θJA -------------------------------------------------------------------------------------------------------------230.6°C/W
+TSOT-23-5, θJC -------------------------------------------------------------------------------------------------------------21.8°C/W
+ZQFN-4L 1x1 (ZDFN-4L 1x1), θJA -------------------------------------------------------------------------------------- 226°C/W
+ZQFN-4L 1x1 (ZDFN-4L 1x1), θJC ------------------------------------------------------------------------------------- 43°C/W
+ Lead Temperature (Soldering, 10 sec.) ------------------------------------------------------------------------------- 260°C
+ Junction Temperature----------------------------------------------------------------------------------------------------- 150°C
+ Storage Temperature Range-------------------------------------------------------------------------------------------- −65°C to 150°C
+ ESD Susceptibility   (Note 3)
+HBM (Human Body Model)---------------------------------------------------------------------------------------------- 2kV
+MM (Machine Model) ------------------------------------------------------------------------------------------------------150V
+(VOUT + 1 < VIN < 5.5V, TA = 25°C, unless otherwise specified)
+Parameter Symbol Test Conditions Min  Typ  Max  Unit 
+Output Voltage Range V OUT  0.8 -- 3.3 V 
+DC Output Accuracy  I LOAD = 1mA 2 -- 2 % 
+Dropout Voltage 
+(ILOAD = 600mA)   (Note 5) VDROP 
+0.8V  VOUT  1.05V (TSOT-23-5) -- 1.05 1.33 
+V 
+0.8V  VOUT  1.05V (ZQFN-4L 1x1) -- 1.05 1.63 
+1.05V  VOUT  1.2V -- 0.8 1.13 
+1.2V  VOUT  1.5V -- 0.71 1.03 
+1.5V  VOUT  1.8V -- 0.57 0.93 
+1.8V  VOUT  2.1V -- 0.57 0.83 
+2.1V  VOUT  2.5V -- 0.41 0.73 
+2.5V  VOUT  3V -- 0.36 0.63 
+3V  VOUT -- 0.31 0.53 
+VCC Consumption Current I Q ILOAD = 0mA, VOUT  5.5V 
+VIN  VOUT + VDROP -- 2 4 A 
+Shutdown GND Current   
+(Note 6) 
+ VEN = 0V -- 0.1 0.5 A 
+Shutdown Leakage Current   
+(Note 6)  V EN = 0V, VOUT = 0V -- 0.1 0.5 A 
+--- page 5 ---
+RT9080
+5
+DS9080-05   June  2017 www.richtek.com
+©Copyright   2017 Richtek Technology Corporation. All rights reserved.                          is a registered trademark of Ric htek Technology Corporation.
+Note 1. Stresses beyond those listed “Absolute Maximum Ratings ” may cause permanent damage to the device. These are
+stress ratings only, and functional operation of the device at these or any other conditions beyond those indicated in
+the operational sections of the specifications is not implied. Exposure to absolute maximum rating conditions may
+affect device reliability.
+Note 2. θJA is measured in the natural convection at TA = 25°C on a two-layer Richtek Evaluation Board for ZQFN-4L 1x1 (ZDFN-
+4L1x1) Package.
+  θJA is measured at TA = 25°C on a high effective thermal conductivity four-layer test board per JEDEC 51-7 for TSOT-23-
+5 Package.
+Note 3. Devices are ESD sensitive. Handling precaution is recommended.
+Note 4. The device is not guaranteed to function outside its operating conditions.
+Note 5. The dropout voltage is defined as V IN − VOUT, when VOUT is 98% of the normal value of V OUT.
+Note 6. The specification is tested at wafer stage and guarantee by design after assembly.
+Parameter Symbol Test Conditions Min  Typ  Max  Unit 
+EN Input Current I EN V EN = 5.5V -- -- 0.1 A 
+Line Regulation LINE I LOAD = 1mA 
+1.2V  VIN  1.5V -- 0.3 0.6 
+% 1.5V  VIN  1.8V -- 0.15 0.3 
+1.8V  VIN  5.5V -- 0.13 0.35 
+Load Regulation LOAD 1mA < I LOAD < 600mA -- 0.5 1 % 
+Power Supply Rejection 
+Ratio PSRR VIN = 3V, ILOAD = 50mA, 
+COUT = 1F, VOUT = 2.5V, f = 1kHz -- 75 -- dB 
+Output Voltage Noise  
+COUT = 1F,  
+ILOAD = 150mA, 
+BW = 10Hz to 
+100kHz, 
+VIN = VOUT + 1V 
+VOUT = 0.8V -- 26 -- 
+VRMS 
+VOUT = 1.2V -- 37 -- 
+VOUT = 1.8V -- 39 -- 
+VOUT = 3.3V -- 42 -- 
+Output Current Limit I LIM V OUT = 90%VOUT(Normal) 610 1100 -- mA 
+Enable Input 
+Voltage 
+Logic-High V IH V IN = 5V 0.9 -- -- V 
+Logic-Low V IL V IN = 5V -- -- 0.4 
+Thermal Shutdown 
+Temperature TSD I LOAD = 30mA, VIN  1.5V -- 150 -- C 
+Thermal Shutdown 
+Hysteresis TSD  -- 20 -- C 
+Discharge Resistance  EN = 0V, V OUT = 0.1V -- 80 --  
+--- page 6 ---
+RT9080
+6
+DS9080-05   June  2017www.richtek.com
+©Copyright   2017 Richtek Technology Corporation. All rights reserved.                          is a registered trademark of Ric htek Technology Corporation.
+Typical Application Circuit
+Figure 1. Application with Sense Function
+Figure 2. Application without Sense Function
+Figure 3. Adjustable Output Voltage Application Circuit
+VIN
+EN
+VOUT
+GND
+COUTCIN
+VOUT
+RT9080N
+VIN
+EN
+1µF SNS (Effective Capacitance     1µF)
+VIN
+EN
+VOUT
+GND
+COUTCIN
+VOUT
+RT9080
+VIN
+EN
+1µF (Effective Capacitance     1µF)
+VIN
+EN
+VOUT
+GND
+RT9080N
+1µF
+SNS
+R1
+R2
+NC COUT
+VOUTCIN
+VIN
+EN
+(Effective Capacitance     1µF)
+--- page 7 ---
+RT9080
+7
+DS9080-05   June  2017 www.richtek.com
+©Copyright   2017 Richtek Technology Corporation. All rights reserved.                          is a registered trademark of Ric htek Technology Corporation.
+Typical Operating Characteristics
+Output Voltage vs. Temperature
+3.20
+3.22
+3.24
+3.26
+3.28
+3.30
+3.32
+3.34
+3.36
+3.38
+3.40
+-50 -25 0 25 50 75 100 125
+Temperature (°C)
+Output Voltage (V)
+VOUT = 3.3V, ILOAD = 1mA
+VIN = 3.8V
+VIN = 4.5V
+VIN = 5.5V
+Output Voltage vs. Temperature
+0.70
+0.72
+0.74
+0.76
+0.78
+0.80
+0.82
+0.84
+0.86
+0.88
+0.90
+-50 -25 0 25 50 75 100 125
+Temperature (°C)
+Output Voltage (V)
+VOUT = 0.8V, ILOAD = 1mA
+VIN = 1.2V
+VIN = 2.1V
+VIN = 5.5V
+Output Voltage vs. Load Current
+0.50
+0.55
+0.60
+0.65
+0.70
+0.75
+0.80
+0.85
+0.90
+0.95
+1.00
+0 50 100 150 200 250 300 350 400 450 500 550 600
+Load Current (mA)
+Output Voltage (V)
+ILOAD = 0mA to 600mA
+VIN = 3V
+VIN = 5V
+Output Voltage vs. Input Voltage
+0.70
+0.72
+0.74
+0.76
+0.78
+0.80
+0.82
+0.84
+0.86
+0.88
+0.90
+1.2 2.06 2.92 3.78 4.64 5.5
+Input Voltage (V)
+Output Voltage (V)
+VOUT = 0.8V, ILOAD = 1mA
+Ground Current vs. Load Current
+0
+50
+100
+150
+200
+250
+300
+350
+400
+450
+500
+1 10 100 1000
+Load Current (mA)
+GND Current (μA)
+VIN = 2.2V, VOUT = 0.8V
+TA = 65°C
+TA = 25°C
+TA = −40°C
+Ground Current vs. Load Current
+0
+100
+200
+300
+400
+500
+600
+700
+800
+900
+1 10 100 1000
+Load Current (mA)
+GND Current (μA)
+VIN = 4.3V, VOUT = 3.3V
+TA = 65°C
+TA = 25°C
+TA = −40°C
+--- page 8 ---
+RT9080
+8
+DS9080-05   June  2017www.richtek.com
+©Copyright   2017 Richtek Technology Corporation. All rights reserved.                          is a registered trademark of Ric htek Technology Corporation.
+Enable Threshold vs. Input Voltage
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+123456
+Input Voltage (V)
+EN Voltage (V)
+Enable Low
+Enable High
+Enable Threshold vs. Temperature
+0.61
+0.62
+0.63
+0.64
+0.65
+0.66
+0.67
+0.68
+-50 -25 0 25 50 75 100 125
+Temperature (°C)
+EN Voltage (V)
+Enable Low
+Enable High
+VIN = 5.5V
+Dropout Voltage vs. Temperature
+0
+50
+100
+150
+200
+250
+300
+350
+400
+450
+500
+-50 -25 0 25 50 75 100 125
+Temperature (°C)
+Dropout Voltage (mV)
+VOUT = 3.3VILOAD = 1mA
+ILOAD = 10mA
+ILOAD = 100mA
+ILOAD = 200mA
+ILOAD = 300mA
+ILOAD = 400mA
+ILOAD = 500mA
+ILOAD = 600mA
+Shutdown Current vs. Input Voltage
+0.00
+0.02
+0.04
+0.06
+0.08
+0.10
+123456
+Input Voltage (V)
+Shutdown Current ( μA) 1
+VOUT = 0.8V, EN = 0V
+Shutdown Leakage Current vs. Temperature
+0.000
+0.005
+0.010
+0.015
+0.020
+0.025
+0.030
+0.035
+0.040
+0.045
+-50 -25 0 25 50 75 100 125
+Temperature (°C)
+Shutdown Leakage Current ( μA) 1 VOUT = 0.8V, EN = 0V
+VIN = 1.8V
+VIN = 5.5V
+Current Limit vs. Temperature
+0
+200
+400
+600
+800
+1000
+1200
+-50 -25 0 25 50 75 100 125
+Temperature (°C )
+Current Limit (mA)
+VIN = 5V
+VOUT = 3.3V
+VOUT = 0.8V
+--- page 9 ---
+RT9080
+9
+DS9080-05   June  2017 www.richtek.com
+©Copyright   2017 Richtek Technology Corporation. All rights reserved.                          is a registered trademark of Ric htek Technology Corporation.
+Time (100 μs/Div)
+Load Transient
+VOUT
+(20mV/Div)
+ILOAD
+(200mA/Div)
+VIN = 1.8V, VOUT = 0.8V, ILOAD = 1mA to 600mA
+Time (500 μs/Div)
+Power Off from EN
+VOUT
+(2V/Div)
+EN
+(2V/Div)
+ILOAD
+(200mA/Div)
+VIN = 4V, VOUT = 3.3V, ILOAD = 600mA
+Time (500 μs/Div)
+Power On from EN
+VOUT
+(2V/Div)
+EN
+(2V/Div)
+ILOAD
+(200mA/Div)
+VIN = 4V, VOUT = 3.3V, ILOAD = 600mA
+Time (250 μs/Div)
+Line Transient
+VOUT
+(2mV/Div)
+VIN
+(1V/Div)
+VIN = 2.8V to 3.8V, VOUT = 1.8V, ILOAD = 1mA
+Fold-Back Current Limit vs. Temperature
+0
+200
+400
+600
+800
+1000
+1200
+1400
+-50 -25 0 25 50 75 100 125
+Temperature (°C )
+Current Limit (mA)
+VIN = 5V
+VOUT = 3.3V
+VOUT = 0.8V
+SNS Input Current vs. Temperature
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+-50 -25 0 25 50 75 100 125
+Temperature (°C)
+SNS Input Current (μA)
+VIN = 5V, VOUT = 0.8V, EN = 3V
+--- page 10 ---
+RT9080
+10
+DS9080-05   June  2017www.richtek.com
+©Copyright   2017 Richtek Technology Corporation. All rights reserved.                          is a registered trademark of Ric htek Technology Corporation.
+Output Noise
+-500
+-400
+-300
+-200
+-100
+0
+100
+200
+300
+400
+500
+0123456789 1 0
+sec (m)
+Noise (μV)
+VIN = 1.8V, VOUT = 0.8V, ILOAD = 600mA,
+COUT = 1μF, Frequency = 10Hz to 100kHz
+Output Noise
+-500
+-400
+-300
+-200
+-100
+0
+100
+200
+300
+400
+500
+0123456789 1 0
+sec (m)
+Noise (μV)
+VIN = 4.5V, VOUT = 3.3V, ILOAD = 600mA,
+COUT = 1μF, Frequency = 10Hz to 100kHz
+PSRR vs. Frequency
+-100
+-80
+-60
+-40
+-20
+0
+10 100 1000 10000 100000 1000000
+Frequency (Hz)
+PSRR (dB)
+ILOAD = 50mA
+ILOAD = 30mA
+ILOAD = 15mA
+ILOAD = 10mA
+VIN = 3.3V, VOUT = 2.8V, COUT = 1 μF
+PSRR vs. Frequency
+-100
+-80
+-60
+-40
+-20
+0
+10 100 1000 10000 100000 1000000
+Frequency (Hz)
+PSRR (dB)
+ILOAD = 150mA
+ILOAD = 50mA
+ILOAD = 15mA
+VIN = 2.8V, VOUT = 0.8V, COUT = 1μF
+--- page 11 ---
+RT9080
+11
+DS9080-05   June  2017 www.richtek.com
+©Copyright   2017 Richtek Technology Corporation. All rights reserved.                          is a registered trademark of Ric htek Technology Corporation.
+Application Information
+Like any low dropout linear regulator, the RT9080's external
+input and output capacitors must be properly selected for
+stability and performance. Use a 1 μF or larger input
+capacitor and place it close to the IC's VIN and GND pins.
+Any output capacitor meeting the minimum 1m Ω ESR
+(Equivalent Series Resistance) and effective capacitance
+larger than 1μF requirement may be used. Place the output
+capacitor close to the IC's VOUT and GND pins. Increasing
+capacitance and decreasing ESR can improve the circuit's
+PSRR and line transient response.
+Enable
+The RT9080 has an EN pin to turn on or turn off the
+regulator, When the EN pin is in logic high, the regulator
+will be turned on. The shutdown current is almost 0 μA
+typical. The EN pin may be directly tied to VIN to keep the
+part on. The Enable input is CMOS logic and cannot be
+left floating.
+Adjustable Output Voltage Setting
+Because of the small input current at the SNS pin, the
+RT9080N with SNS pin also can work as an adjustable
+output voltage LDO. Figure 3 gives the connections for
+the adjustable output voltage application. The resistor
+divider from VOUT to SNS sets the output voltage when
+in regulation.
+The voltage on the SNS pin sets the output voltage and is
+determined by the values of R1 and R2.  In order to keep
+a good temperature coefficient of output voltage, the values
+of R1 and R2 should be selected carefully to ignore the
+temperature coefficient of input current at the SNS pin. A
+current greater than 50 μA in the resistor divider is
+recommended to meet the above requirem ent. The
+adjustable output voltage can be calculated using the
+formula given in equation 1 :
+OUT SNSR1 + R2V V                                             (1) R2
+where VSNS is determined by the output voltage selections
+in the ordering information of RT9080N. The maximum
+adjustable output voltage can be as high as input voltage
+deducted by the dropout voltage.
+When we choose 51k Ω and 16k Ω as R1 and R2
+respectively, and select a 0.8V output at SNS pin, the
+adjustable output voltage will be set to around 3.35V. Its
+temperature coefficient in Figure 4 is still perfect in such
+kind of application.
+Figure 4. Temperature Coefficient of Adjustable Output
+Voltage
+The minimum recommended 50μA in the resistor divider
+makes the application no longer an ultra low quiescent
+LDO. Figure 5 is another fine adjustable output voltage
+application can keep the LDO still operating in low power
+consumption. The fine tune range is recommended to be
+less than 50mV (R1 ≤ 91kΩ) in order to keep a good
+temperature coefficient of the output voltage.
+Figure 5. Fine Adjustable Output Voltage Application
+Circuit
+There isn't extra current consumption in the above
+application. But the temperature coefficient of output
+voltage will be degraded by the input current at SNS pin.
+If the tuning range is larger than 50mV, a compensation
+capacitor (56pF) is required to keep the stability of output
+voltage. The fine adjustable output voltage is calculated
+using the formula given in equation2 :
+OUT SNS SNSV V  + I R1                                          (2)
+VIN
+EN
+VOUT
+GND
+RT9080N
+1µF
+1µF
+SNS
+R1
+56pF/NC
+Output Voltage vs. Temperature
+3.28
+3.29
+3.30
+3.31
+3.32
+3.33
+3.34
+3.35
+-50 -25 0 25 50 75 100 125
+Temperature (°C)
+Output Voltage (V)
+ILOAD = 1mA
+--- page 12 ---
+RT9080
+12
+DS9080-05   June  2017www.richtek.com
+©Copyright   2017 Richtek Technology Corporation. All rights reserved.                          is a registered trademark of Ric htek Technology Corporation.
+Figure 6. Derating Curve of Maximum Power Dissipation
+where ISNS is the input Current at SNS pin (typical 550nA
+at room temperature) and VSNS is determined by the
+output voltage selections in the ordering information of
+the RT9080N.
+Current Limit
+The RT9080 contains an independent current limiter, which
+monitors and controls the pass transistor's gate voltage,
+limiting the output current to 1.1A (typ.). The current
+limiting level is reduced to around 0.6A named fold-back
+current limit when the output voltage is further decreased.
+The output can be shorted to ground indefinitely without
+damaging the part.
+Thermal Considerations
+For continuous operation, do not exceed absolute
+maximum junction temperature. The maximum power
+dissipation depends on the thermal resistance of the IC
+package, PCB layout, rate of surrounding airflow, and
+difference between junction and ambient temperature. The
+maximum power dissipation can be calculated by the
+following formula :
+PD(MAX) = (TJ(MAX) − TA) / θJA
+where TJ(MAX) is the maximum junction temperature, TA  is
+the ambient temperature, and θJA is the junction to ambient
+thermal resistance.
+For recommended operating condition specifications the
+maximum junction temperature is 125 °C and TA is the
+ambient temperature. The junction to ambient thermal
+resistance, θJA, is layout dependent. For TSOT-23-5
+package, the thermal resistance, θJA, is 230.6°C/W on a
+standard JEDEC 51-7 four-layer thermal test board. For
+ZQFN-4L 1x1 ( ZDFN-4L 1x1) package, the thermal
+resistance, θJA, is 226 °C/W on a two-layer Richtek
+evaluation board. The maximum power dissipation at TA  =
+25°C can be calculated by the following formula :
+PD(MAX) = (125 °C − 25 °C) / (230.6 °C/W) = 0.43W for
+TSOT-23-5 package
+PD(MAX) = (125 °C − 25 °C) / (226 °C/W) = 0.44W for
+ZQFN-4L 1x1 (ZDFN-4L 1x1) package
+The maximum power dissipation depends on the operating
+ambient temperature for fixed T J(MAX)  and thermal
+resistance, θJA. The derating curve in Figure 6 allows the
+designer to see the effect of rising ambient temperature
+on the maximum power dissipation.
+0.0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0 25 50 75 100 125
+Ambient Temperature (°C)
+Maximum Power Dissipation (W) 1
+ZQFN-4L 1x1 (ZDFN-4L 1x1)
+TSOT-23-5
+Four-Layer PCB for TSOT-23-5 package
+Two-Layer Richtek EVB for ZQFN (ZDFN)-4L 1x1
+package
+--- page 13 ---
+RT9080
+13
+DS9080-05   June  2017 www.richtek.com
+©Copyright   2017 Richtek Technology Corporation. All rights reserved.                          is a registered trademark of Ric htek Technology Corporation.
+Outline Dimension
+TSOT-23-5 Surface Mount Package
+Dimensions In Millimeters Dimensions In Inches 
+Symbol 
+Min Max Min Max 
+A 0.700 1.000 0.028 0.039 
+A1 0.000 0.100 0.000 0.004 
+B 1.397 1.803 0.055 0.071 
+b 0.300 0.559 0.012 0.022 
+C 2.591 3.000 0.102 0.118 
+D 2.692 3.099 0.106 0.122 
+e 0.838 1.041 0.033 0.041 
+H 0.080 0.254 0.003 0.010 
+L 0.300 0.610 0.012 0.024 
+A
+A1
+e
+b
+B
+D
+C
+H
+L
+--- page 14 ---
+RT9080
+14
+DS9080-05   June  2017www.richtek.com
+Richtek Technology Corporation
+14F, No. 8, Tai Yuen 1st Street, Chupei City
+Hsinchu, Taiwan, R.O.C.
+Tel: (8863)5526789
+Richtek products are sold by description only. Customers should obtain the latest relevant information and data sheets before p lacing orders and should verify
+that such information is current and complete. Richtek cannot assume responsibility for use of any circuitry other than circuit ry entirely embodied in a Richtek
+product. Information furnished by Richtek is believed to be accurate and reliable. However, no responsibility is assumed by Ric htek or its subsidiaries for its use;
+nor for any infringements of patents or other rights of third parties which may result from its use. No license is granted by i mplication or otherwise under any patent
+or patent rights of Richtek or its subsidiaries.
+Note : The configuration of the Pin #1 identifier is optional,
+but must be located within the zone indicated.
+DETAIL A
+Pin #1 ID and Tie Bar Mark Options
+11
+2 2
+Min. Max. Min. Max.
+A 0.300 0.400 0.012 0.016
+A1 0.000 0.050 0.000 0.002
+A3 0.117 0.162 0.005 0.006
+b 0.175 0.275 0.007 0.011
+D 0.900 1.100 0.035 0.043
+D2 0.450 0.550 0.018 0.022
+E 0.900 1.100 0.035 0.043
+E2 0.450 0.550 0.018 0.022
+e
+L 0.200 0.300 0.008 0.012
+H
+H1
+0.039 0.002
+0.064 0.003
+Symbol
+Dimensions In Millimeters Dimensions In Inches
+0.625 0.025
+Z-Type 4L QFN 1x1 Package

@@ -1,0 +1,988 @@
+--- page 1 ---
+   T3902 
+Bottom Port PDM Low‐Power Multi‐Mode 
+Microphone With High AOP Mode 
+InvenSense, Inc. reserves the right to change the detail 
+specifications as may be required to permit 
+improvements in the design of its products. 
+InvenSense Inc. 
+1745 Technology Drive, San Jose, CA 95110 U.S.A 
++1(408) 988–7339 
+www.invensense.com 
+Document Number: DS‐000357 
+Revision: 1.0 
+Rev Date: 4/15/2020 
+ 
+ 
+GENERAL DESCRIPTION 
+The T3902 is a low‐power, low‐noise digital MEMS 
+microphone in a small package. The T3902 consists of a 
+MEMS microphone element and an impedance converter 
+amplifier followed by a fourth‐order Σ‐Δ modulator. The pulse 
+density modulated (PDM) interface allows two microphones 
+to be time multiplexed on a data line using a single clock.  
+ 
+The T3902 has multiple modes of operation: High 
+Performance, Low Power (AlwaysOn), Standard and Sleep. 
+The T3902 has low power and high SNR in all operational 
+modes. It has 126 dB SPL AOP in High Performance mode, and 
+120 dB SPL AOP in Standard and Low‐Power modes. 
+ 
+The T3902 is available in a small 3.5 × 2.65 × 0.98 mm 
+surface‐mount package. It is reflow solder compatible with 
+no sensitivity degradation.  
+ 
+ 
+APPLICATIONS 
+ Smartphones  
+ Microphone Arrays 
+ Tablets 
+ Cameras 
+ Bluetooth Headsets 
+ Notebook PCs 
+ Security and Surveillance 
+FEATURES 
+SPEC  LOW‐POWER 
+MODE 
+STANDARD 
+MODE 
+HIGH 
+PERFORMANCE 
+MODE 
+Sensitivity  −26 dB FS ±1 dB − 26 dB FS ±1 dB − 32 dB FS ±1 dB 
+SNR  63 dBA  64.5 dBA  64 dBA 
+Current  185 µA  430 µA  650 µA 
+AOP  120 dB SPL  120 dB SPL  126 dB SPL 
+Clock  400 – 800 kHz  1.0 – 3.3 MHz  4.1 – 4.8 MHz 
+ 
+ 3.5 × 2.65 × 0.98 mm surface‐mount package 
+ Low power: 185 µA in Low‐Power Mode 
+ Extended frequency response from 36 Hz to >20 kHz 
+ Sleep Mode: 12 µA 
+ High power supply rejection (PSR): −97 dB FS 
+ Fourth‐order Σ‐Δ modulator 
+ Digital pulse density modulation (PDM) output 
+ Compatible with Sn/Pb and Pb‐free solder processes 
+ RoHS/WEEE compliant  
+ 
+ 
+ 
+FUNCTIONAL BLOCK DIAGRAM 
+ 
+ 
+ 
+ORDERING INFORMATION 
+ 
+PART  TEMP RANGE  PACKAGING 
+MMICT3902‐00‐012  −40°C to +85°C  13” Tape and Reel 
+EV_T3902‐FX  —   
+  
+
+--- page 2 ---
+   T3902 
+ 
+Page 2 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+TABLE OF CONTENTS 
+General Description ..................................................................................................................................................................... 1 
+Applications ................................................................................................................................................................................. 1 
+Features ....................................................................................................................................................................................... 1 
+Functional Block Diagram ............................................................................................................................................................ 1 
+Ordering Information ................................................................................................................................................................... 1 
+Table of Contents .................................................................................................................................................................................... 2 
+Specifications .......................................................................................................................................................................................... 4 
+Table 1. Acoustical/Electrical Characteristics – General .............................................................................................................. 4 
+Table 2. Acoustical/Electrical Characteristics – High‐Performance Mode ................................................................................... 4 
+Table 3. Acoustical/Electrical Characteristics – Standard Mode .................................................................................................. 5 
+Table 4. Acoustical/Electrical Characteristics – Low‐Power Mode .............................................................................................. 5 
+Table 5. Digital Input/Output Characteristics .............................................................................................................................. 6 
+Table 6. PDM Digital Input/Output .............................................................................................................................................. 6 
+Timing Diagram ............................................................................................................................................................................ 7 
+Absolute Maximum Ratings .................................................................................................................................................................... 8 
+Table 7. Absolute Maximum Ratings ........................................................................................................................................... 8 
+ESD Caution ................................................................................................................................................................................. 8 
+Soldering Profile ........................................................................................................................................................................... 9 
+Table 8. Recommended Soldering Profile* .................................................................................................................................. 9 
+Pin Configurations And Function Descriptions ..................................................................................................................................... 10 
+Table 9. Pin Function Descriptions ............................................................................................................................................. 10 
+Typical Performance Characteristics ..................................................................................................................................................... 11 
+Theory Of Operation ............................................................................................................................................................................. 12 
+PDM Data Format ...................................................................................................................................................................... 12 
+Table 10. T3902 Channel Setting ............................................................................................................................................... 12 
+PDM Microphone Sensitivity ..................................................................................................................................................... 12 
+Applications Information ...................................................................................................................................................................... 14 
+Low Power Mode ....................................................................................................................................................................... 14 
+Dynamic Range Considerations ................................................................................................................................................. 14 
+Connecting PDM Microphones .................................................................................................................................................. 14 
+Sleep Mode ................................................................................................................................................................................ 16 
+Start‐Up Time ............................................................................................................................................................................. 16 
+Supporting Documents ......................................................................................................................................................................... 17 
+Application Notes ...................................................................................................................................................................... 17 
+PCB Design And Land Pattern Layout ................................................................................................................................................... 18 
+PCB Material And Thickness ...................................................................................................................................................... 18 
+Handling Instructions ............................................................................................................................................................................ 19 
+Pick And Place Equipment ......................................................................................................................................................... 19 
+--- page 3 ---
+   T3902 
+ 
+Page 3 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+Reflow Solder ............................................................................................................................................................................. 19 
+Board Wash ............................................................................................................................................................................... 19 
+Outline Dimensions ............................................................................................................................................................................... 20 
+Ordering Guide .......................................................................................................................................................................... 20 
+Revision History ......................................................................................................................................................................... 21 
+Compliance Declaration Disclaimer ...................................................................................................................................................... 22 
+--- page 4 ---
+   T3902 
+ 
+Page 4 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+SPECIFICATIONS  
+TABLE 1. ACOUSTICAL/ELECTRICAL CHARACTERISTICS – GENERAL 
+TA = 25°C, VDD = 1.8 to 3.3 V, SCK = 2.4 MHz, 50× decimation, CLOAD = 30 pF unless otherwise noted. Typical specifications are not 
+guaranteed. 
+PARAMETER   CONDITIONS  MIN  TYP  MAX  UNITS  NOTES 
+PERFORMANCE 
+Directionality   Omni    
+Output Polarity  Input acoustic pressure vs. 
+output data  Non‐Inverted    
+Supply Voltage (VDD)   1.65   3.63  V  
+Sleep Mode Current (IS)  SCK < 200 kHz   12  20  µA  
+ 
+TABLE 2. ACOUSTICAL/ELECTRICAL CHARACTERISTICS – HIGH‐PERFORMANCE MODE 
+TA = 25°C, VDD = 1.8 to 3.3 V, SCK = 4.8 MHz, 50× decimation, CLOAD = 30 pF unless otherwise noted. Typical specifications are not 
+guaranteed. 
+PARAMETER   CONDITIONS  MIN  TYP  MAX  UNITS  NOTES 
+Sensitivity  1 kHz, 94 dB SPL − 33 − 32 − 31  dB FS  1, 2 
+Signal‐to‐Noise Ratio (SNR)  20 kHz bandwidth, A‐weighted   64   dBA  
+Equivalent Input Noise (EIN)  20 kHz bandwidth, A‐weighted   30   dBA SPL  
+Dynamic Range  Derived from EIN and AOP   96   dB  
+Low frequency −3 dB point     36   Hz  3 
+Total Harmonic Distortion (THD)  105 dB SPL     0.2  1  %  
+Power Supply Rejection (PSR)  217 Hz, 100 mV p‐p square wave 
+superimposed on VDD = 1.8 V, A‐
+weighted 
+ − 97   dB FS  
+Power Supply Rejection—Swept  
+Sine 
+1 kHz sine wave    −100    dB FS   
+Acoustic Overload Point  10% THD   126   dB SPL  
+Full‐Scale Acoustic Level  0 dB FS output   126   dB SPL  
+Supply Current (IS)  VDD = 1.8 V, no load   650  750  µA  
+Note 1:  Sensitivity is relative to the RMS level of a sine wave with positive amplitude equal to 100% 1s density and negative amplitude equal to 0% 1s density. 
+Note 2: The sensitivity shall not deviate more than 1.0 dB from its initial value after reliability tests. 
+Note 3:  See Figure 4. 
+ 
+  
+--- page 5 ---
+   T3902 
+ 
+Page 5 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+TABLE 3. ACOUSTICAL/ELECTRICAL CHARACTERISTICS – STANDARD MODE 
+TA = 25°C, VDD = 1.8 to 3.3 V, SCK = 2.4 MHz, 50× decimation, CLOAD = 30 pF unless otherwise noted. Typical specifications are not 
+guaranteed. 
+PARAMETER   CONDITIONS  MIN  TYP  MAX  UNITS  NOTES 
+Sensitivity  1 kHz, 94 dB SPL − 27 − 26 − 25  dB FS  1, 2 
+Signal‐to‐Noise Ratio (SNR)  20 kHz bandwidth, A‐weighted   64.5   dBA  
+Equivalent Input Noise (EIN)  20 kHz bandwidth, A‐weighted   29.5   dBA SPL  
+Dynamic Range  Derived from EIN and AOP   90.5   dB  
+Low frequency −3 dB point     36   Hz  3 
+Total Harmonic Distortion (THD)  105 dB SPL     0.2  1  %  
+Power Supply Rejection (PSR)  217 Hz, 100 mV p‐p square wave 
+superimposed on VDD = 1.8 V, A‐
+weighted 
+ − 97   dB FS  
+Power Supply Rejection—Swept  
+Sine 
+1 kHz sine wave    −104    dB FS   
+Acoustic Overload Point  10% THD   120   dB SPL  
+Full‐Scale Acoustic Level  0 dB FS output   120   dB SPL  
+Supply Current (IS)  VDD = 1.8 V, no load   430  500  µA  
+Note 1:  Sensitivity is relative to the RMS level of a sine wave with positive amplitude equal to 100% 1s density and negative amplitude equal to 0% 1s density. 
+Note 2: The sensitivity shall not deviate more than 1.0 dB from its initial value after reliability tests. 
+Note 3:  See See Figure 4. 
+ 
+TABLE 4. ACOUSTICAL/ELECTRICAL CHARACTERISTICS – LOW‐POWER MODE 
+TA = 25°C, VDD = 1.8 to 3.3 V, SCK = 768 kHz, 50× decimation, CLOAD = 30 pF unless otherwise noted. Typical specifications are not 
+guaranteed. 
+PARAMETER   CONDITIONS  MIN  TYP  MAX  UNITS  NOTES 
+Sensitivity  1 kHz, 94 dB SPL − 27 − 26 − 25  dB FS  1, 2 
+Signal‐to‐Noise Ratio (SNR)  8 kHz bandwidth, A‐weighted   63   dBA  
+Equivalent Input Noise (EIN)  8 kHz bandwidth, A‐weighted   31   dBA SPL  
+Dynamic Range  Derived from EIN and AOP   89   dB  
+Low frequency −3 dB point     36   Hz  3 
+Total Harmonic Distortion (THD)  105 dB SPL     0.2  1  %  
+Power Supply Rejection (PSR)  217 Hz, 100 mV p‐p square wave 
+superimposed on VDD = 1.8 V, A‐
+weighted 
+ − 97   dB FS  
+Power Supply Rejection—Swept  
+Sine 
+1 kHz sine wave    −98    dB FS   
+Acoustic Overload Point  10% THD   120   dB SPL  
+Full‐Scale Acoustic Level  0 dB FS output   120   dB SPL  
+Supply Current (IS)  VDD = 1.8 V, no load   185  225  µA  
+Note 1:  Sensitivity is relative to the RMS level of a sine wave with positive amplitude equal to 100% 1s density and negative amplitude equal to 0% 1s density. 
+Note 2: The sensitivity shall not deviate more than 1.0 dB from its initial value after reliability tests. 
+Note 3:  See Figure 4. 
+  
+--- page 6 ---
+   T3902 
+ 
+Page 6 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+TABLE 5. DIGITAL INPUT/OUTPUT CHARACTERISTICS 
+TA = 25°C, 1.8 V < VDD < 3.3 V, unless otherwise noted. 
+PARAMETER   CONDITIONS  MIN  TYP  MAX  UNITS  NOTES 
+Input Voltage High (VIH)   0.65 x VDD     V  
+Input Voltage Low (VIL)       0.35 x VDD  V  
+Output Voltage High (VOH)  ILOAD = 0.5 mA  0.7 x VDD  VDD   V  
+Output Voltage Low (VOL)  ILOAD = 0.5 mA   0  0.3 x VDD  V  
+Output DC Offset  Percent of full scale   3   %  
+Latency     <30   µs  
+ 
+TABLE 6. PDM DIGITAL INPUT/OUTPUT 
+TA = 25°C, 1.8 V < VDD < 3.3 V, unless otherwise noted. 
+PARAMETER  CONDITIONS  MIN  TYP  MAX  UNITS  NOTES 
+MODE SWITCHING 
+Sleep Time  Time from fCLK falling <200 kHz     1  ms  
+Wake‐Up Time  High‐Performance  &  Standard  modes, 
+Sleep  Mode  to  fCLK  >1  MHz,  output 
+within 0.5 dB of final sensitivity, power 
+on 
+   20  ms  
+Wake‐Up Time  Low‐Power Mode, Sleep Mode to fCLK 
+>400 kHz, output within 0.5 dB of final 
+sensitivity, power on 
+   20  ms  
+Switching time  Between Low‐Power and Standard 
+Modes     10  ms  
+Switching time  Between Low‐Power and High‐
+Performance Modes     10  ms  
+INPUT 
+tCLKIN  Input clock period  208    2500  ns  
+Clock Frequency (CLK) 
+Sleep Mode     200  kHz  
+Low‐Power Mode  400   800  kHz  
+Standard Mode  1.0   3.3  MHz  
+High‐Performance Mode  4.1   4.8  MHz  
+Clock Duty Cycle  fCLK <3.3 MHz  40   60  %  
+fCLK >4.1 MHz  48   52  %  
+tRISE  CLK rise time (10% to 90% level)     25  ns  1 
+tFALL  CLK fall time (90% to 10% level)     25  ns  1 
+OUTPUT 
+t1OUTEN  DATA1 (right) driven after falling clock 
+edge 
+50      ns  
+t1OUTDIS  DATA1 (right) disabled after rising 
+clock edge 
+5    40  ns  
+t2OUTEN  DATA2 (left) driven after rising clock 
+edge 
+50      ns  
+t2OUTDIS  DATA2 (left) disabled after falling clock 
+edge 
+5    40  ns  
+Note 1:  Guaranteed by design 
+ 
+--- page 7 ---
+   T3902 
+ 
+Page 7 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+TIMING DIAGRAM 
+ 
+Figure 1. Pulse Density Modulated Output Timing  
+tCLKIN
+CLK
+DATA2
+DATA1
+t2OUTDIS
+t1OUTDIS
+t2OUTEN
+t1OUTEN
+tRISE
+tFALL
+--- page 8 ---
+   T3902 
+ 
+Page 8 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+ABSOLUTE MAXIMUM RATINGS 
+Stress above those listed as Absolute Maximum Ratings may cause permanent damage to the device. These are stress ratings only 
+and functional operation of the device at these conditions is not implied.  Exposure to the absolute maximum ratings conditions for 
+extended periods may affect device reliability.  
+ 
+TABLE 7. ABSOLUTE MAXIMUM RATINGS 
+ 
+PARAMETER   RATING 
+Supply Voltage (VDD)  −0.3 V to +3.63 V 
+Digital Pin Input Voltage − 0.3 V to VDD + 0.3 V or 3.63 V, whichever is less 
+Mechanical Shock  10,000 g 
+Vibration  Per MIL‐STD‐883 Method 2007, Test Condition B 
+Temperature Range   
+  Biased  −40°C to +85°C 
+  Storage − 55°C to +150°C 
+ 
+ 
+ 
+ 
+ESD CAUTION 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+  
+ 
+ 
+ 
+ 
+ 
+ 
+ESD (electrostatic discharge) sensitive device. 
+Charged devices and circuit boards can 
+discharge without detection. Although this 
+product features patented or proprietary 
+protection circuitry, damage may occur on 
+devices subjected to high energy ESD. 
+Therefore proper ESD precautions should be 
+taken to avoid performance degradation or 
+loss of functionality.  
+ 
+--- page 9 ---
+   T3902 
+ 
+Page 9 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+SOLDERING PROFILE 
+ 
+ 
+Figure 2. Recommended Soldering Profile Limits 
+ 
+ 
+ 
+TABLE 8. RECOMMENDED SOLDERING PROFILE*  
+PROFILE FEATURE  Sn63/Pb37  Pb‐Free 
+Average Ramp Rate (TL to TP)  1.25°C/sec max  1.25°C/sec max 
+Preheat 
+Minimum Temperature 
+(TSMIN)  100°C  100°C 
+Maximum 
+Temperature (TSMAX)  150°C  200°C 
+Time (TSMIN to TSMAX), tS  60 sec to 75 sec  60 sec to 75  sec 
+Ramp‐Up Rate (TSMAX to TL)  1.25°C/sec  1.25°C/sec 
+Time Maintained Above Liquidous (tL)  45 sec to 75 sec  ~50 sec 
+Liquidous Temperature (TL)  183°C  217°C 
+Peak Temperature (TP)  215°C +3°C/−3°C  260°C +0°C/−5°C 
+Time Within +5°C of Actual Peak 
+Temperature (tP)  20 sec to 30 sec  20 sec to 30 sec 
+Ramp‐Down Rate  3°C/sec max  3°C/sec max 
+Time +25°C (t25°C) to Peak Temperature  5 min max  5 min max 
+ 
+*The reflow profile in Table 8 is recommended for board manufacturing with InvenSense MEMS microphones. All microphones are 
+also compatible with the J‐STD‐020 profile 
+ 
+tP
+tL
+t25°C TO PEAK TEMPERATURE
+tS
+PREHEAT
+CRITICAL ZONE
+TL TO TP
+TEMPERATURE
+TIME
+RAMP-DOWN
+RAMP-UP
+TSMIN
+TSMAX
+TP
+TL
+--- page 10 ---
+   T3902 
+ 
+Page 10 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+ 
+PIN CONFIGURATIONS AND FUNCTION DESCRIPTIONS 
+ 
+ 
+ 
+Figure 3. Pin Configuration (Top View, Terminal Side Down) 
+ 
+TABLE 9. PIN FUNCTION DESCRIPTIONS 
+PIN  NAME  FUNCTION 
+1  DATA  Digital Output Signal (DATA1 or DATA2) 
+2  SELECT 
+Left Channel or Right Channel Select: 
+DATA 1 (right): SELECT tied to GND 
+DATA 2 (left):  SELECT tied to VDD. In this setting, SELECT should be tied to the same voltage 
+source as the VDD pin.  
+3  GND  Ground 
+4  CLK  Clock Input to Microphone 
+5  VDD 
+Power Supply. For best performance and to avoid potential parasitic artifacts, place a 0.1 µF 
+(100 nF) ceramic type X7R capacitor between Pin 5 (VDD) and ground. Place the capacitor as 
+close to Pin 5 as possible.  
+DATA
+VDD
+GND
+1
+2
+3
+5
+4
+SELECT
+CLK
+--- page 11 ---
+   T3902 
+ 
+Page 11 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+ 
+TYPICAL PERFORMANCE CHARACTERISTICS 
+ 
+Figure 4. Typical Frequency Response 
+ 
+Figure 5. THD + N vs. Input Level 
+  
+ 
+Figure 6. Power Supply Rejection (PSR) vs. Frequency 
+ 
+Figure 7. Linearity 
+  
+  
+   
+  
+‐20.0
+‐10.0
+0.0
+10.0
+20.0
+10 100 1000 10000
+NORMALIZED AMPLITUDE (dB)
+FREQUENCY (Hz)
+0.01
+0.10
+1.00
+10.00
+90 100 110 120 130
+THD+N (%)
+INPUT AMPLITUDE (dB SPL)
+High Performance Mode
+Standard Mode
+Low Power Mode
+‐120.0
+‐100.0
+‐80.0
+‐60.0
+‐40.0
+‐20.0
+0.0
+100 1000 10000
+PSRR (dB)
+FREQUENCY (Hz)
+‐40.00
+‐35.00
+‐30.00
+‐25.00
+‐20.00
+‐15.00
+‐10.00
+‐5.00
+0.00
+90 100 110 120 130
+OUTPUT AMPLITUDE (dBFS)
+INPUT AMPLITUDE (dB SPL)
+High Performance Mode
+Standard Mode
+Low Power Mode
+--- page 12 ---
+   T3902 
+ 
+Page 12 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+THEORY OF OPERATION 
+PDM DATA FORMAT 
+The output from the DATA pin of the T3902 is in pulse density modulated (PDM) format. This data is the 1‐bit output of a fourth‐
+order Σ‐Δ modulator. The data is encoded so that the left channel is clocked on the falling edge of CLK, and the right channel is clocked 
+on the rising edge of CLK. After driving the DATA signal high or low in the appropriate half frame of the CLK signal, the DATA driver of 
+the microphone tristates. In this way, two microphones, one set to the left channel and the other to the right, can drive a single DATA 
+line. See Figure 1 for a timing diagram of the PDM data format; the DATA1 and DATA2 lines shown in this figure are two halves of the 
+single physical DATA signal. Figure 8 shows a diagram of the two stereo channels sharing a common DATA line.  
+ 
+ 
+ 
+Figure 8. Stereo PDM Format 
+ 
+If only one microphone is connected to the DATA signal, the output is only clocked on a single edge (Figure 9). For example, a left 
+channel microphone is never clocked on the rising edge of CLK. In a single microphone application, each bit of the DATA signal is 
+typically held for the full CLK period until the next transition because the leakage of the DATA line is not enough to discharge the line 
+while the driver is tristated.  
+ 
+ 
+ 
+ 
+Figure 9. Mono PDM Format 
+ 
+See Table 10 for the channel assignments according to the logic level on the SELECT pin. 
+ 
+ TABLE 10. T3902 CHANNEL SETTING 
+ 
+ 
+ 
+ 
+For PDM data, the density of the pulses indicates the signal amplitude. A high density of high pulses indicates a signal near positive 
+full scale, and a high density of low pulses indicates a signal near negative full scale. A perfect zero (dc) audio signal shows an 
+alternating pattern of high and low pulses.  
+ 
+The output PDM data signal has a dc offset of about 3% of full scale. A high‐pass filter in the codec that is connected to the digital 
+microphone and does not affect the performance of the microphone typically removes this dc signal.  
+ 
+PDM MICROPHONE SENSITIVITY 
+The sensitivity of a PDM output microphone is specified with the unit dB FS (decibels relative to digital full scale). A 0 dB FS sine 
+wave is defined as a signal whose peak just touches the full‐scale code of the digital word (see Figure 10). This measurement 
+convention also means that signals with a different crest factor may have an RMS level higher than 0 dB FS. For example, a full‐scale 
+square wave has an RMS level of 3 dB FS.  
+ 
+This definition of a 0 dB FS signal must be understood when measuring the sensitivity of the T3902. A 1 kHz sine wave at a 94 dB SPL 
+acoustic input to the T3902 results in an output signal with a −26 dB FS level in Standard Mode and −32 dB FS in High Performance 
+Mode. In the Standard Mode example, the output digital word peaks at −26 dB below the digital full‐scale level. A common 
+DATA2 (L) DATA2 (L)DATA1 (R) DATA1 (R)
+CLK
+DATA
+DATA1 (R) DATA1 (R) DATA1 (R)
+CLK
+DATA
+SELECT Pin Setting  Channel 
+Low (tie to GND)  Right (DATA1) 
+High (tie to VDD)  Left (DATA2) 
+--- page 13 ---
+   T3902 
+ 
+Page 13 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+misunderstanding is that the output has an RMS level of −29 dB FS; however, this is not true because of the definition of the 0 dB FS 
+sine wave.  
+ 
+ 
+ 
+Figure 10. 1 kHz, 0 dB FS Sine Wave 
+ 
+There is not a commonly accepted unit of measurement to express the instantaneous level, as opposed to the RMS level of the 
+signal, of a digital signal output from the microphone. Some measurement systems express the instantaneous level of an individual 
+sample in units of D, where 1.0 D is digital full scale. In this case, a −26 dB FS sine wave has peaks at 0.05 D.  
+1.0
+–1.0
+–0.8
+–0.6
+–0.4
+–0.2
+0
+0.2
+0.4
+0.6
+0.8
+00 . 9 1 . 0 0.80.70.60.50.40.30.20.1
+DIGITAL AMPLITUDE (D)
+TIME (ms)
+--- page 14 ---
+   T3902 
+ 
+Page 14 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+ 
+APPLICATIONS INFORMATION 
+ 
+LOW POWER MODE 
+Low Power Mode (LPM) enables the T3902 to be used in an AlwaysOn listening mode for keyword spotting and ambient sound 
+analysis. The T3902 will enter LPM when the frequency of SCK is between 400 and 800 kHz. In this mode, the microphone consumes 
+only 185 µA while retaining high electro‐acoustic performance.  
+ 
+When one microphone is in LPM for AlwaysOn listening, a second microphone sharing the same data line may be powered down. In 
+this case, where one microphone is powered up and another is powered down by disabling the VDD supply or in sleep mode by 
+reducing the frequency of a separate clock source, the disabled microphone does not present a load to the signal on the LPM 
+microphone’s DATA pin. 
+ 
+DYNAMIC RANGE CONSIDERATIONS 
+The full‐scale digital output (0 dB FS) of the T3902 is mapped to an acoustic input of 126 dB SPL in high‐performance mode. The 
+microphone clips (THD = 10%) at 126 dB SPL (see Figure 5); however, it continues to output an increasingly distorted signal above 
+that point. The peak output level, which is controlled by the modulator, limits at 0 dB FS (see Figure 7). 
+ 
+To fully use the 96 dB dynamic range of the output data of the T3902 in a design, the digital signal processor (DSP), analog‐to‐digital 
+converter (ADC), or codec circuit following it must be chosen carefully. The decimation filter that inputs the PDM signal from the T3902 
+must have a dynamic range sufficiently better than the dynamic range of the microphone so that the overall noise performance of 
+the system is not degraded. If the decimation filter has a dynamic range of 10 dB better than the microphone, the overall system 
+noise only degrades by 0.4 dB. This 106 dB filter dynamic range requires the filter to have at least 18 bit resolution.  
+ 
+CONNECTING PDM MICROPHONES 
+A PDM output microphone is typically connected  to a codec with a dedicated PDM input. This codec separately decodes the left and right 
+channels and filters the high sample rate modulated data back to the audio frequency band. This codec also generates the clock for the 
+PDM microphones or is synchronous with the source that is generating the clock. Figure 11 and Figure 12 show mono and stereo 
+connections of the T3902 to a codec. The mono connection shows an T3902 set to output data on the right channel. To output on the 
+left channel, tie the SELECT pin to VDD instead of tying it to GND. 
+ 
+ 
+ 
+Figure 11. Mono PDM Microphone (Right Channel) Connection to Codec  
+ 
+CLOCK OUTPUT
+CODEC
+0.1µF
+1.8VT O3 .3V
+GND
+SELECT DATA
+ICS‐41350 CLK
+VDD
+DATA INPUT
+T3902 
+--- page 15 ---
+   T3902 
+ 
+Page 15 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+ 
+Figure 12. Stereo PDM Microphone Connection to Codec 
+ 
+Decouple the VDD pin of the T3902 to GND with a 0.1 µF capacitor. Place this capacitor as close to VDD as the printed circuit board 
+(PCB) layout allows.  
+ 
+Do not use a pull‐up or pull‐down resistor on the PDM data signal line because it can pull the signal to an incorrect state during the period 
+that the signal line is tristated.  
+ 
+The DATA signal does not need to be buffered in normal use when the T3902 microphone(s) is placed close to the codec on the PCB. If the 
+DATA signal must be driven over a long cable (>15 cm) or other large capacitive load, a digital buffer may be required. Only use a signal 
+buffer on the DATA line when one microphone is in use or after the point where two microphones are connected (see Figure 13). The 
+DATA output of each microphone in a stereo configuration cannot be individually buffered because the two buffer outputs cannot 
+drive a single signal line. If a buffer is used, take care to select one with low propagation delay so that the timing of the data 
+connected to the codec is not corrupted. 
+  
+ 
+Figure 13. Buffered Connections Between Stereo T3902s and a Codec 
+When long wires are used to connect the codec to the T3902, a source termination resistor can be used on the clock output of the 
+codec instead of a buffer to minimize signal overshoot or ringing. Match the value of this resistor to the characteristic impedance of 
+CLOCK OUTPUT
+CODEC
+0.1µF
+1.8VT O3 .3V
+GND
+SELECT DATA
+ICS‐41350 CLK
+VDD
+DATA INPUT
+0.1µF
+1.8V TO 3.3V
+GND
+SELECT DATA
+ICS‐41350 CLK
+VDD
+CLOCK OUTPUT
+CODEC
+DATA
+ICS‐41350
+ICS‐41350
+CLK
+DATA
+CLK
+DATA INPUT
+T3902 
+T3902 
+T3902 
+T3902 
+--- page 16 ---
+   T3902 
+ 
+Page 16 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+the CLK trace on the PCB. Depending on the drive capability of the codec clock output, a buffer may still be needed, as shown in Figure 
+13. 
+ 
+SLEEP MODE 
+The microphone enters sleep mode when the clock frequency falls below 200 kHz. In this mode, the microphone data output is in a high 
+impedance state. The current consumption in sleep mode is less than 20 µA. 
+  
+The T3902 enters sleep mode within 1 ms of the clock frequency falling below 200 kHz. The microphone wakes up from sleep mode 
+and begins to output data within 20 ms of when the clock becomes active.  
+ 
+In sleep mode: 
+If the SELECT signal is logic high, the DATA pin will be pulled low to GND. 
+If the SELECT signal is logic low, the DATA pin will be high impedance (floating). 
+  
+  
+CLK  SELECT  DATA 
+<200kHz or float  VDD  GND 
+<200kHz or float  GND  HiZ 
+ 
+ 
+START‐UP TIME 
+The start‐up time of the T3902 is less than 20 ms. The PDM data from the microphone is valid to be used as soon as the data is being 
+output. 
+--- page 17 ---
+   T3902 
+ 
+Page 17 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+SUPPORTING DOCUMENTS 
+ 
+For additional information, see the following documents. 
+ 
+APPLICATION NOTES  
+AN‐000048, PDM Digital Output MEMS Microphone Flex Evaluation Board User Guide 
+AN‐100, MEMS Microphone Handling and Assembly Guide 
+AN‐1003, Recommendations for Mounting and Connecting the Invensense, Bottom‐Ported MEMS Microphones 
+AN‐1112, Microphone Specifications Explained 
+AN‐1124, Recommendations for Sealing InvenSense Bottom‐Port MEMS Microphones from Dust and Liquid Ingress 
+AN‐1140, Microphone Array Beamforming 
+ 
+ 
+--- page 18 ---
+   T3902 
+ 
+Page 18 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+ 
+PCB DESIGN AND LAND PATTERN LAYOUT 
+The recommended PCB land pattern for the T3902 is a 1:1 ratio of the solder pads on the microphone package, as shown in Figure 14. 
+Avoid applying solder paste to the sound hole in the PCB. A suggested solder paste stencil pattern layout is shown in Figure 15.  
+ 
+The response of the T3902 is not affected by the PCB hole size as long as the hole is not smaller than the sound port of the 
+microphone (0.375 mm in diameter). A 0.5 mm to 1 mm diameter for the hole is recommended. Take care to align the hole in the 
+microphone package with the hole in the PCB. The exact degree of the alignment does not affect the microphone performance as long 
+as the holes are not partially or completely blocked. 
+ 
+ 
+Figure 14. Recommended PCB Land Pattern Layout 
+ 
+ 
+Figure 15. Suggested Solder Paste Stencil Pattern Layout 
+ 
+PCB MATERIAL AND THICKNESS 
+The performance of the T3902 is not affected by PCB thickness. The T3902 can be mounted on either a rigid or flexible PCB. A 
+flexible PCB with the microphone can be attached directly to the device housing with an adhesive layer. This mounting method 
+offers a reliable seal around the sound port while providing the shortest acoustic path for good sound quality. 
+Ø1.025
+Ø1.625
+0.522x0.725(4X)
+1.2520.822
+1.675
+0.838
+1.2520.822
+1.675
+0.1(4x)
+Ø1.125
+Ø1.625
+0.422x0.625(4X)
+--- page 19 ---
+   T3902 
+ 
+Page 19 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+HANDLING INSTRUCTIONS  
+PICK AND PLACE EQUIPMENT 
+The MEMS microphone can be handled using standard pick‐and‐place and chip shooting equipment. Take care to avoid damage to the 
+MEMS microphone structure as follows: 
+ Use a standard pickup tool to handle the microphone. Because the microphone hole is on the bottom of the package, the 
+pickup tool can make contact with any part of the lid surface. 
+ Do not pick up the microphone with a vacuum tool that makes contact with the bottom side of the microphone.  
+Do not pull air out of or blow air into the microphone port. 
+ Do not use excessive force to place the microphone on the PCB. 
+ 
+REFLOW SOLDER 
+For best results, the soldering profile must be in accordance with the recommendations of the manufacturer of the solder paste used to 
+attach the MEMS microphone to the PCB. It is recommended that the solder reflow profile not exceed the limit conditions specified 
+in Figure 2 and Table 8. 
+ 
+BOARD WASH 
+When washing the PCB, ensure that water does not make contact with the microphone port. Do not use blow‐off procedures or 
+ultrasonic cleaning. 
+ 
+--- page 20 ---
+   T3902 
+ 
+Page 20 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+OUTLINE DIMENSIONS 
+ 
+ 
+Figure 16. 5‐Terminal Chip Array Small Outline No Lead Cavity [LGA_CAV] 
+3.5 mm × 2.65 mm  × 0.98 mm  Body 
+Dimensions shown in millimeters 
+Dimension tolerance is ±0.15 mm unless otherwise specified 
+ 
+ 
+Figure 17. Package Marking Specification (Top View) 
+ 
+ORDERING GUIDE 
+PART  TEMP RANGE  PACKAGE  QUANTITY  PACKAGING 
+MMICT3902‐00‐012 − 40°C to +85°C  5‐Terminal LGA_CAV  10,000   13” Tape and Reel 
+EV_T3902‐FX  —   Evaluation Board  —   
+BOTTOM VIEW
+SIDE VIEW
+TOP VIEW
+B
+d0 . 1 0
+A
+(4X)
+f0 . 1 0 C
+C
+(2.45)
+(3.30)
+3.50
+2.65
+j0 . 1 0 m C A B
+0.522X0.725 (4x)
+PIN 1
+CORNER
+(0.254)
+0.98
+1.040
+1.33
+Ø0.375
+Ø1.025
+Ø1.625
+0.300
+1.513
+3.500
+0.125
+0.950
+1.675
+0.125
+2.650
+0.82
+1
+5
+2
+4
+3
+PIN 1
+CORNER
+3902 
+--- page 21 ---
+   T3902 
+ 
+Page 21 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+REVISION HISTORY 
+REVISION DATE  REVISION  DESCRIPTION 
+12/16/2019  0.1  Initial version 
+2/12/2020  0.2  Updated Package Marking Specification 
+4/15/2020  1.0  Initial release 
+--- page 22 ---
+   T3902 
+ 
+Page 22 of 22 
+Document Number: DS‐000357 
+Revision: 1.0 
+ 
+COMPLIANCE DECLARATION DISCLAIMER 
+InvenSense believes the environmental and other compliance information given in this document to be correct but cannot 
+guarantee accuracy or completeness. Conformity documents substantiating the specifications and component characteristics are on 
+file. InvenSense subcontracts manufacturing, and the information contained herein is based on data received from vendors and 
+suppliers, which has not been validated by InvenSense. 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+This information furnished by InvenSense, Inc. (“InvenSense”) is believed to be accurate and reliable. However, no responsibility is assumed by InvenSense for its use, 
+or for any infringements of patents or other rights of third parties that may result from its use. Specifications are subject to change without notice. InvenSense reserves 
+the right to make changes to this product, including its circuits and software, in order to improve its design and/or performance, without prior notice. InvenSense makes 
+no warranties, neither expressed nor implied, regarding the information and specifications contained in this document. InvenSense assumes no responsibility for any 
+claims or damages arising from information contained in this document, or from the use of products and services detailed therein. This includes, but is not limited to, 
+claims or damages based on the infringement of patents, copyrights, mask work and/or other intellectual property rights.  
+Certain intellectual property owned by InvenSense and described in this document is patent protected. No license is granted by implication or otherwise under any 
+patent or patent rights of InvenSense. This publication supersedes and replaces all information previously supplied. Trademarks that are registered trademarks are the 
+property of their respective companies. InvenSense sensors should not be used or sold in the development, storage, production or utilization of any conventional or 
+mass‐destructive  weapons  or  for  any  other  weapons  or  life  threatening  applications,  as  well  as  in  any  other  life  critical  applications  such  as  medical  equipment, 
+transportation, aerospace and nuclear instruments, undersea equipment, power plant equipment, disaster prevention and crime prevention equipment.  
+©2019 InvenSense. All rights reserved. InvenSense, MotionTracking, MotionProcessing, MotionProcessor, MotionFusion, MotionApps, DMP, AAR, and the InvenSense 
+logo are trademarks of InvenSense, Inc. The InvenSense logo is a trademark of InvenSense Corporation. Other company and product names may be trademarks of the 
+respective companies with which they are associated. 
+ 
+©2019 InvenSense. All rights reserved. 

@@ -1,0 +1,354 @@
+--- page 1 ---
+FS8205A
+www.fuxinsemi.com Page 1 Ver2.1
+C
+i
+r
+c
+u
+i
+t
+d
+i
+a
+g
+r
+a
+m
+Marking
+ 
+Product Summary 
+P
+a
+c
+k
+a
+g
+e
+ 
+ 
+V
+(BR)DSS
+ R
+DS(on)MAX
+ I
+D
+ 
+20V 
+25mΩ@4.5V 
+6A 
+32mΩ@2.5V 
+ 
+ 
+ 
+ 
+Feature 
+ Advanced trench process technology 
+ High density cell design for ultra low on-resistan ce 
+ 
+Application 
+ Battery protection 
+ Switching application 
+ 
+SOT-23-6L 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+8205A
+G1 D1/D2 
+S1 D1/D2 
+G2
+ 
+S2
+ 
+N-Channel Enhancement Mode MOSFET
+
+--- page 2 ---
+FS8205A
+www.fuxinsemi.com Page 2 Ver2.1
+ 
+Absolute maximum ratings (Ta=25℃ unless otherwise noted) 
+Parameter Symbol Value Unit 
+Drain-Source Voltage V
+DS
+ 20 V 
+Gate-Source Voltage V
+GS
+ ±12 V 
+Continuous Drain Current I
+D
+ 6 A 
+Pulsed Drain Current I
+DM
+ 25 A 
+Power Dissipation P
+D
+ 1.5 W 
+Junction Temperature T
+J
+℃ 
+Storage Temperature T
+STG
+ -55 ~ +150 
+℃
+ 
+ 
+Electrical characteristics (T
+A
+=25
+ o
+C, unless otherwise noted) 
+ 
+Parameter Symbol  Test Condition Min.  Typ.
+ 
+Max.
+ 
+Unit 
+Static Characteristics 
+Drain-source breakdown voltage V
+(BR)DSS
+ V
+GS 
+= 0V, I
+D
+ =250µA 20   V 
+Zero gate voltage drain current I
+DSS
+ V
+DS
+ =20V,V
+GS
+ = 0V   1 µA 
+Gate-body leakage current I
+GSS
+ V
+GS
+ =±12V, V
+DS
+ = 0V   ±100
+ 
+nA 
+Gate threshold voltage V
+GS(th)
+ V
+DS
+ =V
+GS
+, I
+D
+ =250µA   0.5  1.2 V 
+Drain-source on-resistance
+1)
+ R
+DS(on)
+ 
+V
+GS 
+=4.5V, I
+D
+ =6.0A  18 25 
+mΩ 
+V
+GS 
+=2.5V, I
+D
+ =5.0A  23 32 
+Forward transconductance
+1)
+ g
+FS
+ V
+DS
+ =5V, I
+D
+ =7A 9   S 
+Dynamic characteristics
+2)
+ 
+Input Capacitance C
+iss
+ 
+V
+DS
+ =8V,V
+GS
+ =0V,f =1MHz 
+ 800  
+pF 
+Output Capacitance C
+oss
+  155  
+Reverse Transfer Capacitance C
+rss
+  125  
+Total Gate Charge Q
+g
+ 
+V
+DS
+ =10V,V
+GS
+ =4.5V,I
+D
+ =4A 
+ 11  
+nC 
+Gate-Source Charge Q
+gs
+  2.3  
+Gate-Drain Charge Q
+gd
+  2.5  
+Turn-on delay time t
+d(on)
+ 
+V
+DD
+=10V,V
+GS
+=4V, 
+I
+D
+ =1A,,R
+GEN
+=10Ω 
+ 13  
+nS 
+Turn-on rise time t
+r
+  54  
+Turn-off delay time t
+d(off)
+  18  
+Turn-off fall time t
+f
+  11  
+Source-Drain Diode characteristics 
+Diode Forward voltage V
+DS
+ V
+GS
+ =0V, I
+S
+=4.0A   1.2 V 
+Notes: 
+1) Pulse Test: Pulse Width < 300µs, Duty Cycle ≤2%.  
+2) Guaranteed by design, not subject to production testing. 
+ 
+ 
+N-Channel Enhancement Mode MOSFET
+ -55 ~ +150 
+--- page 3 ---
+FS8205A
+www.fuxinsemi.com Page 3 Ver2.1
+TypicalCharacteristics
+  
+ 
+                
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+                   Figure1.  Output Characteristics                                               Figure2.  Transfer Characteristics 
+ 
+   
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure3.  Capacitance Characteristics                                                    Figure4. Gate Charge 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Figure5. Drain-Source on Resistance                                      Figure6. Drain-Source on Resistance 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+N-Channel Enhancement Mode MOSFET
+--- page 4 ---
+FS8205A
+www.fuxinsemi.com Ver2.1
+Page 4
+ 
+SOT-23-6L Package Information 
+ 
+ 
+N-Channel Enhancement Mode MOSFET
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Symbol 
+Dimensions In Millimeters Dimensions In Inches 
+Min. Max. Min. Max. 
+A 1.050 1.250 0.041 0.049 
+A1 0.000 0.100 0.000 0.004 
+A2 1.050 1.150 0.041 0.045 
+b 0.300 0.500 0.012 0.020 
+c 0.100 0.200 0.004 0.008 
+D 2.820 3.020 0.111 0.119 
+E 2.650 2.950 0.104 0.116 
+E1 1.500 1.700 0.059 0.067 
+e 0.950 (BSC) 0.037 (BSC) 
+ e1 1.800 2.000 0.071 0.079 
+L 0.300 0.600 0.012 0.024 
+θ
+ 0
+°
+ 8
+°
+ 0
+°
+ 8
+°
+ 

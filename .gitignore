@@ -1,0 +1,5 @@
+build/
+*.lck
+*-backups/
+_autosave-*
+.history/

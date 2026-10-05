@@ -1,0 +1,782 @@
+(kicad_sch
+	(version 20260306)
+	(generator "eeschema")
+	(generator_version "10.0")
+	(uuid "f2d22664-87c1-504f-b234-4e37487f593d")
+	(paper "A4")
+	(title_block (title "smart-bookmark-esp32s3 - PDM MEMS microphone") (date "2026-10-05") (rev "A") (company "Smart bookmark voice recorder"))
+	(lib_symbols
+		(symbol "Device:C"
+				(pin_numbers
+					(hide yes)
+				)
+				(pin_names
+					(offset 0.254)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "C"
+					(at 0.635 2.54 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Value" "C"
+					(at 0.635 -2.54 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+						(justify left)
+					)
+				)
+				(property "Footprint" ""
+					(at 0.9652 -3.81 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "Unpolarized capacitor"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_keywords" "cap capacitor"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_fp_filters" "C_*"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "C_0_1"
+					(polyline
+						(pts
+							(xy -2.032 0.762) (xy 2.032 0.762)
+						)
+						(stroke
+							(width 0.508)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(polyline
+						(pts
+							(xy -2.032 -0.762) (xy 2.032 -0.762)
+						)
+						(stroke
+							(width 0.508)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+				)
+				(symbol "C_1_1"
+					(pin passive line
+						(at 0 3.81 270)
+						(length 2.794)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at 0 -3.81 90)
+						(length 2.794)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+		(symbol "Device:R"
+				(pin_numbers
+					(hide yes)
+				)
+				(pin_names
+					(offset 0)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "R"
+					(at 2.032 0 90)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Value" "R"
+					(at 0 0 90)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Footprint" ""
+					(at -1.778 0 90)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "Resistor"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_keywords" "R res resistor"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_fp_filters" "R_*"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "R_0_1"
+					(rectangle
+						(start -1.016 -2.54)
+						(end 1.016 2.54)
+						(stroke
+							(width 0.254)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+				)
+				(symbol "R_1_1"
+					(pin passive line
+						(at 0 3.81 270)
+						(length 1.27)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at 0 -3.81 90)
+						(length 1.27)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+		(symbol "bookmark:MMICT390200012"
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "MIC"
+					(at 0 10.16 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Value" "MMICT390200012"
+					(at 0 -12.7 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Footprint" "bookmark:MIC-SMD_5P-L3.5-W2.7-TL_MMICT390200012"
+					(at 0 -15.24 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" "https://www.lcsc.com/datasheet/C3171752.pdf"
+					(at 0 -17.78 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Manufacturer" "TDK InvenSense(应美盛)"
+					(at 0 -20.32 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "MPN" "MMICT390200012"
+					(at 0 -22.86 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "LCSC Part" "C3171752"
+					(at 0 -25.4 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_keywords" "MEMS Microphones"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "MMICT390200012_0_1"
+					(rectangle
+						(start -8.89 7.62)
+						(end 8.89 -5.08)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type background)
+						)
+					)
+					(circle
+						(center -7.62 6.35)
+						(radius 0.38)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+					(pin passive line
+						(at -11.43 5.08 0)
+						(length 2.54)
+						(name "DATA"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at -11.43 2.54 0)
+						(length 2.54)
+						(name "SELECT"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "2"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at 0 -7.62 90)
+						(length 2.54)
+						(name "GND"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "3"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at 11.43 2.54 180)
+						(length 2.54)
+						(name "CLK"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "4"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+					(pin passive line
+						(at 11.43 5.08 180)
+						(length 2.54)
+						(name "VDD"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "5"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+		(symbol "power:GND"
+				(power global)
+				(pin_numbers
+					(hide yes)
+				)
+				(pin_names
+					(offset 0)
+					(hide yes)
+				)
+				(exclude_from_sim no)
+				(in_bom yes)
+				(on_board yes)
+				(in_pos_files yes)
+				(duplicate_pin_numbers_are_jumpers no)
+				(property "Reference" "#PWR"
+					(at 0 -6.35 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Value" "GND"
+					(at 0 -3.81 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Footprint" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Datasheet" ""
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(property "ki_keywords" "global power"
+					(at 0 0 0)
+					(show_name no)
+					(do_not_autoplace no)
+					(hide yes)
+					(effects
+						(font
+							(size 1.27 1.27)
+						)
+					)
+				)
+				(symbol "GND_0_1"
+					(polyline
+						(pts
+							(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+						)
+						(stroke
+							(width 0)
+							(type default)
+						)
+						(fill
+							(type none)
+						)
+					)
+				)
+				(symbol "GND_1_1"
+					(pin power_in line
+						(at 0 0 270)
+						(length 0)
+						(name ""
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+						(number "1"
+							(effects
+								(font
+									(size 1.27 1.27)
+								)
+							)
+						)
+					)
+				)
+				(embedded_fonts no)
+			)
+	)
+	(rectangle (start 40.64 60.96) (end 248.92 144.78) (stroke (width 0.2) (type dash)) (fill (type none)) (uuid "7272d004-5693-5976-81fb-c2305a62c4a0"))
+	(text "MK1 T3902 bottom-port PDM mic, powered from a GPIO (MIC_PWR) so it draws nothing in deep sleep" (exclude_from_sim no) (at 41.91 59.69 0) (effects (font (size 1.5 1.5)) (justify left bottom)) (uuid "68d40aca-e23a-51aa-afcd-2e86c9a13e0c"))
+	(symbol (lib_id "bookmark:MMICT390200012") (at 149.86 99.06 0) (unit 1) (body_style 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (dnp no)
+		(uuid "f0099c0d-2b84-54e3-bbf2-ccf3973c6648")
+		(property "Reference" "MK1" (at 149.86 90.17 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Value" "T3902" (at 149.86 110.49 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "bookmark:MIC-SMD_5P-L3.5-W2.7-TL_MMICT390200012" (at 149.86 99.06 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Datasheet" "" (at 149.86 99.06 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Description" "" (at 149.86 99.06 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "MPN" "MMICT390200012" (at 149.86 99.06 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "LCSC" "C3171752" (at 149.86 99.06 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(pin "1" (uuid "5d14df65-20cf-5ca5-b9e0-95159cda586b"))
+		(pin "2" (uuid "6552e2f6-2bd3-5300-9e9f-c9a40b4ce498"))
+		(pin "3" (uuid "458d9394-3519-5897-b404-a9f3ada628d0"))
+		(pin "4" (uuid "5c0e924a-faf0-5160-89bc-fb8f4b02854d"))
+		(pin "5" (uuid "d3c8511b-09be-5655-89fc-7caabe0f36e7"))
+		(instances (project "smart-bookmark-esp32s3" (path "/9e75547b-5a05-54f0-b18a-dbc42d394236/3e8336c2-992d-599b-987f-334e43f0e82b" (reference "MK1") (unit 1))))
+	)
+	(wire (pts (xy 138.43 93.98) (xy 133.35 93.98)) (stroke (width 0) (type default)) (uuid "3b61e7cb-7b54-5e66-96fe-d08f0222eaa3"))
+	(hierarchical_label "MIC_DATA" (shape bidirectional) (at 133.35 93.98 180) (effects (font (size 1.27 1.27)) (justify right)) (uuid "e9b605c9-6d62-54af-a084-4cf8c22bbcd1"))
+	(wire (pts (xy 138.43 96.52) (xy 133.35 96.52)) (stroke (width 0) (type default)) (uuid "a098528d-ffe3-5629-8338-f3a06b7ed5e9"))
+	(symbol (lib_id "power:GND") (at 133.35 96.52 270) (unit 1) (body_style 1)
+		(exclude_from_sim no) (in_bom no) (on_board yes) (in_pos_files no) (dnp no)
+		(uuid "1d8334f0-b1c9-50de-893a-c72d3ea4b683")
+		(property "Reference" "#PWR_audio_01" (at 133.35 92.71 90) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Value" "GND" (at 127 96.52 90) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "" (at 133.35 96.52 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Datasheet" "" (at 133.35 96.52 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Description" "" (at 133.35 96.52 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(pin "1" (uuid "53d7092a-08bd-5e6e-a36f-64de8410b597"))
+		(instances (project "smart-bookmark-esp32s3" (path "/9e75547b-5a05-54f0-b18a-dbc42d394236/3e8336c2-992d-599b-987f-334e43f0e82b" (reference "#PWR_audio_01") (unit 1))))
+	)
+	(wire (pts (xy 149.86 106.68) (xy 149.86 111.76)) (stroke (width 0) (type default)) (uuid "d1069540-74d5-53c7-8713-6bbab2a089c8"))
+	(symbol (lib_id "power:GND") (at 149.86 111.76 0) (unit 1) (body_style 1)
+		(exclude_from_sim no) (in_bom no) (on_board yes) (in_pos_files no) (dnp no)
+		(uuid "b5748eb0-6dd0-5a19-ae9a-5e03270d3094")
+		(property "Reference" "#PWR_audio_02" (at 149.86 107.95 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Value" "GND" (at 149.86 116.84 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "" (at 149.86 111.76 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Datasheet" "" (at 149.86 111.76 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Description" "" (at 149.86 111.76 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(pin "1" (uuid "bbcb4a5d-98a2-5e87-8f06-4ab501b2b40f"))
+		(instances (project "smart-bookmark-esp32s3" (path "/9e75547b-5a05-54f0-b18a-dbc42d394236/3e8336c2-992d-599b-987f-334e43f0e82b" (reference "#PWR_audio_02") (unit 1))))
+	)
+	(wire (pts (xy 161.29 96.52) (xy 166.37 96.52)) (stroke (width 0) (type default)) (uuid "0eab96e8-f08a-5520-94f2-baab230933b3"))
+	(label "MIC_CLK_R" (at 166.37 96.52 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "c424c0a6-a1ef-5a84-a1d3-b7d51de1eee1"))
+	(wire (pts (xy 161.29 93.98) (xy 166.37 93.98)) (stroke (width 0) (type default)) (uuid "c5659e1e-a5be-5171-aa57-67e9d60a89d6"))
+	(label "MIC_VDD" (at 166.37 93.98 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "60fa9d10-1f2c-5af3-9045-bffdfd0cd58b"))
+	(symbol (lib_id "Device:R") (at 71.12 83.82 0) (unit 1) (body_style 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (dnp no)
+		(uuid "538a5bc0-717e-5003-bfe6-efb1d20674e4")
+		(property "Reference" "R14" (at 73.66 82.55 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left)))
+		(property "Value" "100" (at 73.66 85.09 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left)))
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 71.12 83.82 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Datasheet" "" (at 71.12 83.82 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Description" "" (at 71.12 83.82 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "MPN" "0402WGF1000TCE" (at 71.12 83.82 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "LCSC" "C25076" (at 71.12 83.82 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(pin "1" (uuid "3d5f2d0b-b1c4-51da-9997-bec51b8103e6"))
+		(pin "2" (uuid "9e6caa1e-bd1b-5f81-949d-3249e975af56"))
+		(instances (project "smart-bookmark-esp32s3" (path "/9e75547b-5a05-54f0-b18a-dbc42d394236/3e8336c2-992d-599b-987f-334e43f0e82b" (reference "R14") (unit 1))))
+	)
+	(wire (pts (xy 71.12 80.01) (xy 71.12 77.47)) (stroke (width 0) (type default)) (uuid "018d0cb8-748c-5ada-808c-fde6b5d4a4cb"))
+	(hierarchical_label "MIC_PWR" (shape bidirectional) (at 71.12 77.47 90) (effects (font (size 1.27 1.27)) (justify left)) (uuid "7fffb39c-7d46-5015-a43f-9e36df8be874"))
+	(wire (pts (xy 71.12 87.63) (xy 71.12 90.17)) (stroke (width 0) (type default)) (uuid "cd2aca9b-ba38-5f7f-b9c5-838fcb68a47e"))
+	(label "MIC_VDD" (at 71.12 90.17 270) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "abb8a0d4-bd3f-5b30-8c93-bc0f1b818a83"))
+	(symbol (lib_id "Device:R") (at 71.12 116.84 0) (unit 1) (body_style 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (dnp no)
+		(uuid "5e2d3eae-abda-5221-b40b-2f9800cb5cac")
+		(property "Reference" "R15" (at 73.66 115.57 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left)))
+		(property "Value" "33" (at 73.66 118.11 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left)))
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric" (at 71.12 116.84 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Datasheet" "" (at 71.12 116.84 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Description" "" (at 71.12 116.84 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "MPN" "0402WGF330JTCE" (at 71.12 116.84 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "LCSC" "C25105" (at 71.12 116.84 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(pin "1" (uuid "bdd99d59-e29a-562c-96a6-b8f45097b24c"))
+		(pin "2" (uuid "d659c6c5-490a-51ec-a597-e259e98cb4aa"))
+		(instances (project "smart-bookmark-esp32s3" (path "/9e75547b-5a05-54f0-b18a-dbc42d394236/3e8336c2-992d-599b-987f-334e43f0e82b" (reference "R15") (unit 1))))
+	)
+	(wire (pts (xy 71.12 113.03) (xy 71.12 110.49)) (stroke (width 0) (type default)) (uuid "945dfe21-99e3-5989-b1e9-52a7da8cf016"))
+	(hierarchical_label "MIC_CLK" (shape bidirectional) (at 71.12 110.49 90) (effects (font (size 1.27 1.27)) (justify left)) (uuid "e1971035-0725-589e-8a5d-9030a238d578"))
+	(wire (pts (xy 71.12 120.65) (xy 71.12 123.19)) (stroke (width 0) (type default)) (uuid "dce014dc-14de-5e94-a08d-604fb041ebd5"))
+	(label "MIC_CLK_R" (at 71.12 123.19 270) (effects (font (size 1.27 1.27)) (justify right bottom)) (uuid "3a0ef4ef-417f-564a-a01a-afa34297d8d1"))
+	(symbol (lib_id "Device:C") (at 200.66 106.68 0) (unit 1) (body_style 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (dnp no)
+		(uuid "771e47c8-22a3-5d5e-a37e-ee0805ed0b95")
+		(property "Reference" "C10" (at 203.2 105.41 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left)))
+		(property "Value" "1uF" (at 203.2 107.95 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left)))
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 200.66 106.68 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Datasheet" "" (at 200.66 106.68 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Description" "" (at 200.66 106.68 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "MPN" "CL05A105KA5NQNC" (at 200.66 106.68 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "LCSC" "C52923" (at 200.66 106.68 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(pin "1" (uuid "686ab824-e969-5c94-81eb-d388d8d9ffd0"))
+		(pin "2" (uuid "7defaf3b-ba1e-5999-828c-16924f477c94"))
+		(instances (project "smart-bookmark-esp32s3" (path "/9e75547b-5a05-54f0-b18a-dbc42d394236/3e8336c2-992d-599b-987f-334e43f0e82b" (reference "C10") (unit 1))))
+	)
+	(wire (pts (xy 200.66 102.87) (xy 200.66 100.33)) (stroke (width 0) (type default)) (uuid "bebe91f3-1919-5c22-ae17-48c87d5a4a36"))
+	(label "MIC_VDD" (at 200.66 100.33 90) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "7f3d9336-5a14-56f2-9f0f-9cf31dd0ada8"))
+	(wire (pts (xy 200.66 110.49) (xy 200.66 113.03)) (stroke (width 0) (type default)) (uuid "d4c2116a-f22f-56e6-9885-ba4c24c65a6d"))
+	(symbol (lib_id "power:GND") (at 200.66 113.03 0) (unit 1) (body_style 1)
+		(exclude_from_sim no) (in_bom no) (on_board yes) (in_pos_files no) (dnp no)
+		(uuid "041cb6da-32f9-5ed6-854a-658f690d4b30")
+		(property "Reference" "#PWR_audio_03" (at 200.66 109.22 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Value" "GND" (at 200.66 118.11 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "" (at 200.66 113.03 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Datasheet" "" (at 200.66 113.03 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Description" "" (at 200.66 113.03 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(pin "1" (uuid "34135f9d-d106-5a0d-a417-a48c5079a2cd"))
+		(instances (project "smart-bookmark-esp32s3" (path "/9e75547b-5a05-54f0-b18a-dbc42d394236/3e8336c2-992d-599b-987f-334e43f0e82b" (reference "#PWR_audio_03") (unit 1))))
+	)
+	(symbol (lib_id "Device:C") (at 220.98 106.68 0) (unit 1) (body_style 1)
+		(exclude_from_sim no) (in_bom yes) (on_board yes) (in_pos_files yes) (dnp no)
+		(uuid "240538b9-8550-59f1-8ca4-e5bbc96132fa")
+		(property "Reference" "C11" (at 223.52 105.41 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left)))
+		(property "Value" "100nF" (at 223.52 107.95 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27)) (justify left)))
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric" (at 220.98 106.68 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Datasheet" "" (at 220.98 106.68 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Description" "" (at 220.98 106.68 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "MPN" "CL05B104KO5NNNC" (at 220.98 106.68 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "LCSC" "C1525" (at 220.98 106.68 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(pin "1" (uuid "8e57937a-071a-5de2-b12d-5797169fe202"))
+		(pin "2" (uuid "f58318ba-4b91-57d3-a2b5-1675ca30d882"))
+		(instances (project "smart-bookmark-esp32s3" (path "/9e75547b-5a05-54f0-b18a-dbc42d394236/3e8336c2-992d-599b-987f-334e43f0e82b" (reference "C11") (unit 1))))
+	)
+	(wire (pts (xy 220.98 102.87) (xy 220.98 100.33)) (stroke (width 0) (type default)) (uuid "c70fbbca-97e6-5cbc-9ca9-3f5695893dfd"))
+	(label "MIC_VDD" (at 220.98 100.33 90) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "dab81f2a-7e8b-5e52-b7b1-90cdc4059dbe"))
+	(wire (pts (xy 220.98 110.49) (xy 220.98 113.03)) (stroke (width 0) (type default)) (uuid "20960172-ce3a-5b0e-b2d1-cfd81da4dc70"))
+	(symbol (lib_id "power:GND") (at 220.98 113.03 0) (unit 1) (body_style 1)
+		(exclude_from_sim no) (in_bom no) (on_board yes) (in_pos_files no) (dnp no)
+		(uuid "1fd401d5-5e27-53c2-9f93-54677bbfd7ab")
+		(property "Reference" "#PWR_audio_04" (at 220.98 109.22 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Value" "GND" (at 220.98 118.11 0) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Footprint" "" (at 220.98 113.03 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Datasheet" "" (at 220.98 113.03 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(property "Description" "" (at 220.98 113.03 0) (hide yes) (show_name no) (do_not_autoplace no) (effects (font (size 1.27 1.27))))
+		(pin "1" (uuid "69fbf2cc-4b3b-55ec-b0ff-7641abc4a63f"))
+		(instances (project "smart-bookmark-esp32s3" (path "/9e75547b-5a05-54f0-b18a-dbc42d394236/3e8336c2-992d-599b-987f-334e43f0e82b" (reference "#PWR_audio_04") (unit 1))))
+	)
+	(text "SELECT = GND: data valid after the CLK rising edge (right slot). C11 at pin 5. PCB port hole 0.8 mm under the mic." (exclude_from_sim no) (at 45.72 139.7 0) (effects (font (size 1.27 1.27)) (justify left bottom)) (uuid "ada35e88-e749-5f07-8820-a90ec63eeee9"))
+	(embedded_fonts no)
+)
