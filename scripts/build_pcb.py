@@ -141,6 +141,86 @@ def add_components(b, comps, pin_nets, preloaded):
         fps[ref] = fp
     return fps
 
+# 3D models the stock/imported footprints lack, or reference by an absolute path.
+# ref -> (path, offset mm, rotation deg). Offsets were set by eye against renders (scripts/render3d.py).
+M3D = "${KIPRJMOD}/lib/bookmark.3dshapes/"
+MODEL_OVERRIDES = {
+    "U1": (M3D + "BULETM-SMD_ESP32-S3-MINI-1-N8.step", (0, 0, 0), (0, 0, 0)),
+    "J1": (M3D + "USB-C_SMD-TYPE-C-31-M-12_1.step", (0, 1.575, 0), (0, 0, 180)),
+    "SW1": (M3D + "SW-SMD_L3.9-W2.9-H2.0-LS4.8.step", (0, 0, 0), (0, 0, 0)),
+    # T3902 has no vendor model at LCSC; the Knowles part is the same 3.5 x 2.65 x 0.98 mm can
+    "MK1": ("${KICAD10_3DMODEL_DIR}/Sensor_Audio.3dshapes/Knowles_SPH0645LM4H-6_3.5x2.65mm.step", (0, 0, 0), (0, 0, 90)),
+}
+
+def apply_models(fps):
+    for ref, (path, offset, rot) in MODEL_OVERRIDES.items():
+        models = fps[ref].Models()
+        while models.size() > 0:
+            models.pop_back()
+        m = pcbnew.FP_3DMODEL()
+        m.m_Filename = path
+        m.m_Offset = pcbnew.VECTOR3D(*offset)
+        m.m_Rotation = pcbnew.VECTOR3D(*rot)
+        m.m_Show = True
+        models.push_back(m)
+
+
+# ------------------------------------------------------------------ text / silkscreen
+# Only parts someone has to find by eye get a silkscreen designator, placed by hand in clear
+# board area. Passives keep theirs on the Fab layer (assembly drawing), centred on the part.
+SILK_REF = {   # ref: (x, y) of the text centre, top side
+    "U1": (18.5, 21.3), "U6": (5.9, 21.9), "SW1": (18.5, 29.2), "D1": (5.6, 12.4), "MK1": (33.2, 28.7),
+    "J1": (28.2, 36.9), "U2": (23.4, 38.9), "U3": (15.2, 49.4), "U4": (4.0, 39.4), "Q1": (4.0, 49.2),
+    "U5": (26.0, 47.25), "Q2": (9.9, 31.0), "Q3": (9.9, 40.7),
+}
+BACK_LABEL = {  # back-side pads are labelled with what they are, not their designator
+    "BT1": ("BAT+", 0, 2.2), "BT2": ("BAT-", 0, 2.2), "TP7": ("VBAT", 2.6, 0),
+    "TP1": ("3V3", 0, -1.5), "TP2": ("GND", 0, -1.5), "TP3": ("EN", 0, -1.5),
+    "TP4": ("BOOT", 0, 1.5), "TP5": ("TX", 0, 1.5), "TP6": ("RX", 0, 1.5),
+}
+
+def _size(t, h, thick):
+    t.SetTextSize(pcbnew.VECTOR2I(pcbnew.FromMM(h), pcbnew.FromMM(h)))
+    t.SetTextThickness(pcbnew.FromMM(thick))
+
+def _text(b, s, x, y, layer, h=0.8, mirror=False):
+    t = pcbnew.PCB_TEXT(b)
+    t.SetText(s)
+    t.SetLayer(layer)
+    t.SetPosition(V(x, y))
+    _size(t, h, 0.13)
+    t.SetMirrored(mirror)
+    b.Add(t)
+
+def tidy_text(b, fps):
+    for ref, fp in fps.items():
+        back = fp.IsFlipped()
+        fab = pcbnew.B_Fab if back else pcbnew.F_Fab
+        for f in fp.GetFields():
+            if f.GetName() not in ("Reference", "Value"):
+                f.SetVisible(False)              # MPN / LCSC stay as data for the BOM, never drawn
+                f.SetLayer(fab)
+        val = fp.Value()
+        val.SetLayer(fab)
+        val.SetVisible(False)
+        r = fp.Reference()
+        r.SetTextAngleDegrees(0)
+        if ref in SILK_REF:
+            r.SetLayer(pcbnew.F_SilkS)
+            r.SetPosition(V(*SILK_REF[ref]))
+            _size(r, 0.8, 0.13)
+        else:
+            r.SetLayer(fab)
+            r.SetPosition(fp.GetPosition())
+            _size(r, 0.4, 0.06)
+        if ref in BACK_LABEL:
+            label, dx, dy = BACK_LABEL[ref]
+            x, y = mm(fp.GetPosition())
+            _text(b, label, x + dx, y + dy, pcbnew.B_SilkS, 0.8, mirror=True)
+    _text(b, "SMART BOOKMARK  REV A", 14.0, 4.0 + 2.6, pcbnew.B_SilkS, 0.9, mirror=True)
+    _text(b, "CELL AREA - NO PADS", 14.0, 25.0, pcbnew.B_Fab, 1.0, mirror=True)
+
+
 # ------------------------------------------------------------------ placement helpers
 def cy_bbox(fp):
     layer = pcbnew.B_CrtYd if fp.IsFlipped() else pcbnew.F_CrtYd
@@ -218,6 +298,8 @@ def build_place():
     missing = set(fps) - set(TOP) - set(BACK)
     if missing:
         raise RuntimeError(f"unplaced: {sorted(missing)}")
+    apply_models(fps)
+    tidy_text(b, fps)
     return b, fps
 
 
