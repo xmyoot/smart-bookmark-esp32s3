@@ -17,7 +17,10 @@ Done:
 - Placement on 37 x 52 mm, 4 layers, 0.8 mm. No overlaps. Renders in `docs/placement_*.png`.
 - Docs: client_request (Q1–Q11), design_spec, reference_designs, ble_protocol, proposal draft,
   testing, usage.
-- Firmware source in `firmware/` (ESP-IDF, NimBLE, LittleFS).
+- Firmware source in `firmware/` (ESP-IDF, NimBLE, LittleFS). Compiles: PlatformIO Core 6.2.0
+  (pip, user install), espressif32 7.1.3, ESP-IDF 6.1.0; 560 kB image. The first build took
+  22 minutes because PlatformIO's primary mirror fails certificate checks behind the proxy and
+  every package falls back to a second mirror.
 
 Design changes made along the way, and why:
 1. **No power-path switch.** The load sits on the cell as on the XIAO. A Schottky OR-ing diode's

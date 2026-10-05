@@ -1,6 +1,10 @@
 # Smart bookmark firmware
 
-ESP-IDF (v5.3 or newer) project for the Rev A board. C, NimBLE, LittleFS.
+ESP-IDF project for the Rev A board. C, NimBLE, LittleFS.
+
+Builds cleanly with ESP-IDF 6.1.0 (through PlatformIO, platform espressif32 7.1.3, 2026-10-05):
+560 kB image, one deprecation warning (`esp_sleep_get_wakeup_cause`). It is written to also
+build on v5.3–5.5, but that has not been tried.
 
 ## Build and flash
 

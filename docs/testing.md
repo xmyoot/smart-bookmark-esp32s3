@@ -10,7 +10,7 @@
 | Placement | `scripts/build_pcb.py place` | 52 footprints, no courtyard overlaps, nothing in the antenna strip |
 | Routing, DRC, schematic parity | — | **Not done yet** (waiting for placement review) |
 | Fabrication files | — | **Not done yet** |
-| Firmware build | `pio run` / `idf.py build` | See `timeline.md` for the current state |
+| Firmware build | `pio run` in `firmware/` (ESP-IDF 6.1.0) | Success: 560 kB image (30 % of the app slot), RAM 8 %, one deprecation warning. Not run on hardware |
 
 ## B. First-article bring-up (to do when boards arrive)
 
