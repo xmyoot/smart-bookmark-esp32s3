@@ -17,8 +17,8 @@ you can judge the result instead of a promise. As of today I have:
   reporting, LED states and deep sleep,
 - a written BLE protocol for your app developer.
 
-That is why the price and timeline below are far smaller than you will see in other bids: most
-of the hours are already spent, and I am not charging for them. What is left is fitting the
+That is why the price below is a fraction of what you will see in other bids: the hours are
+already spent, and I am not charging for them. What is left is fitting the
 board to your enclosure, building it, and proving it on real hardware.
 
 ## What the design is
@@ -36,29 +36,40 @@ board to your enclosure, building it, and proving it on real hardware.
 - **Assembly on one side only**, 4-layer 0.8 mm board, programming and test pads on the back.
 - **Firmware laid out for over-the-air updates** later, through your app.
 
-## Milestones and fixed price
+## Price
 
-Rate: **US$25 per hour**. Each milestone is a fixed price; if it takes me longer, that is my cost.
+Two parts, because they are two different kinds of work.
 
-| # | Milestone | You receive | Hours | Price | When |
-|---|---|---|---|---|---|
-| 1 | Schematic and component selection | Schematic PDF and KiCad source, BOM with JLCPCB part numbers, design notes. One round of your changes | 3 | US$75 | Day 1 |
-| 2 | PCB layout | Board fitted to your enclosure CAD (connector, button and microphone positions), 3D STEP file, Gerbers, BOM and pick-and-place for JLCPCB | 5 | US$125 | Days 2–3, after I have the enclosure CAD |
-| 3 | Firmware and BLE protocol | Source code, build instructions, protocol document | 6 | US$150 | Days 2–4 |
-| 4 | Working boards | First boards powered up and tested: charging, sleep current, a recorded clip pulled over Bluetooth; test report and any firmware fixes found on hardware | 10 | US$250 | 2–3 days after the boards arrive |
-| | **Total** | | **24** | **US$600** | |
+**1. The finished design: one flat fee of US$49.**
 
-**Timeline.** My work for milestones 1 to 3 is done within four working days of receiving your
-enclosure CAD. Milestone 4 depends on the factory: JLCPCB typically takes one to two weeks to
-build and ship assembled boards, and nobody can shorten that except by paying for faster
-shipping. I finish testing within three days of the boards reaching me.
+| Milestone | You receive | When |
+|---|---|---|
+| Schematic and component selection | Schematic PDF and KiCad source, BOM with JLCPCB part numbers, design notes | Day 1 |
+| PCB layout | Board adjusted to your enclosure CAD (connector, button and microphone positions), 3D STEP file, Gerbers, BOM and pick-and-place for JLCPCB | Within 3 working days of receiving the enclosure CAD |
+| Firmware and BLE protocol | Source code, build instructions, protocol document | Same 3 days |
+
+The fee is small because this work is already done; it covers fitting it to your enclosure and one
+round of your changes.
+
+**2. Working boards: US$20 per hour, billed only for hours used, capped at 8 hours (US$160).**
+
+Powering up the first boards and proving them: charging, sleep current, a recorded clip pulled
+over Bluetooth, a short test report, and the firmware fixes that real hardware always turns up.
+I expect 4 to 6 hours. This part cannot honestly be a flat token fee, because nobody knows what
+a first board will do until it is on the bench; the cap means you know the most it can cost.
+
+**The most you would pay me is US$209.**
+
+**Timeline.** The design files reach you within three working days of your enclosure CAD. The
+boards then depend on the factory: JLCPCB typically takes one to two weeks to build and ship
+assembled boards. I finish testing within three days of the boards reaching me.
 
 **Not included:** the boards and parts themselves (ordered on your JLCPCB account or billed at
 cost, quoted before ordering), batteries, shipping, certification testing, and the phone app.
-If the first boards show a hardware fault that needs a second board revision, I correct the
-design at no charge; the second batch of boards is at cost.
+If the first boards show a fault that needs a second board revision, the design correction is
+billed at the same hourly rate and the second batch of boards is at cost.
 
-You own all source files (schematic, PCB, Gerbers, BOM, firmware) on payment of each milestone.
+You own all source files (schematic, PCB, Gerbers, BOM, firmware) on payment of the flat fee.
 
 ## Your three questions
 
@@ -75,7 +86,7 @@ would rather say that plainly:
   KiCad project for JLCPCB assembly.
 - **This design**: the ESP32-S3 BLE firmware for your bookmark is written and compiles, with a
   documented transfer protocol (clip list, chunked download with resume and CRC, pairing and
-  encryption). It has not yet run on hardware, because no board exists yet. That is milestone 4.
+  encryption). It has not yet run on hardware, because no board exists yet. That is the working-boards stage.
 
 **2. Have you designed small, battery-powered or wearable devices with LiPo charging?**
 
@@ -85,7 +96,7 @@ would rather say that plainly:
   charger, battery-temperature cutoff and the load switching that decides battery life.
 - For your board I selected and laid out the charger, cell protection, a 2 µA regulator and a
   battery-sense circuit that draws nothing in sleep, and budgeted the standby current part by
-  part. Measuring that budget on the first boards is part of milestone 4.
+  part. Measuring that budget on the first boards is part of the working-boards stage.
 
 **3. Concerns and suggestions for a first run of about 500 units**
 
@@ -114,7 +125,7 @@ would rather say that plainly:
    units ship. The firmware layout already leaves room for it.
 
 I am interested in the follow-on work too: production support, the test jig and later revisions,
-at the same rate.
+at the same hourly rate.
 
 [[your name]]
 
@@ -122,13 +133,13 @@ at the same rate.
 
 ## Note to self (delete before sending)
 
-- **24 hours is tight.** It assumes the enclosure needs only connector, button and mic moves and
-  that the first boards work. Bring-up is where hours usually overrun; at a fixed US$250 for
-  milestone 4, a stubborn fault comes out of your own time. The free design correction for a
-  second revision is a real commitment.
-- **Milestone 3 says the firmware is delivered in days**, which is true for source code. It only
-  becomes *tested* firmware in milestone 4.
+- **Amounts are easy to change:** the flat fee (US$49), the hourly rate (US$20) and the cap
+  (8 hours) each appear once in the Price section, plus the US$209 maximum.
+- **The flat fee hands over the whole design for US$49.** Once paid, the client owns the files
+  and has no obligation to buy the bring-up hours from you.
+- **The cap is a commitment.** If bring-up takes more than 8 hours, the rest is unpaid.
+- US$20/hour is the bottom of the range the client said they expect (US$20-40).
 - The experience answers cite the coin-cell sensor and the P4 camera as design/specification
   work, which is what they were. Neither names its client.
-- "A few days" is honest only for your own work; the proposal says so and puts the factory lead
+- "Three working days" is honest only for your own work; the proposal puts the factory lead
   time on JLCPCB.
