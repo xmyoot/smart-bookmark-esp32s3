@@ -45,7 +45,6 @@ decisions = [
 ]
 open_items = [
     "Enclosure CAD: every mechanical position (USB-C, button, microphone hole, LED, cell) is an assumption until it arrives.",
-    "Firmware does not use the 16 MB flash U6 yet; clips still go to the module's own flash (about 8.5 minutes).",
     "Firmware compiles but has never run on hardware. The microphone's left/right slot setting is the likeliest first fix.",
     "CPL rotations are not checked in JLCPCB's preview; Gerbers were not opened in a viewer.",
     "The microphone 3D model is a same-size stand-in; compare the land pattern with the T3902 datasheet drawing.",
@@ -88,8 +87,7 @@ bookmark advertises for 30 s so the phone can fetch it. Protocol: <code>docs/ble
 limited by the cell's self-discharge, not the board.</p>
 <h2>Engineering decisions</h2><div class="wrap"><table><tr><th>Topic</th><th>Decision</th></tr>{rows(decisions)}</table></div>
 <h2>Open items</h2><ul>{''.join(f'<li>{o}</li>' for o in open_items)}</ul>
-<h2>Deliverables</h2><p>KiCad sources and generator scripts; Gerber zip, JLCPCB BOM and CPL, schematic and assembly PDFs and STEP in <code>fab/</code>;
-ESP-IDF firmware in <code>firmware/</code>; BLE protocol, design spec, reference circuits, bring-up checklist and a proposal draft in <code>docs/</code>.</p>
+<h2>Deliverables</h2><p>KiCad sources and generator scripts; Gerber zip, JLCPCB BOM and pick-and-place, schematic and assembly PDFs and a 3D STEP file; ESP-IDF firmware source; BLE protocol, design spec, reference circuits and a bring-up checklist.</p>
 </main></body></html>"""
 (ROOT / "docs" / "designBrief.html").write_text(html, encoding="utf-8")
 print("docs/designBrief.html", len(html))

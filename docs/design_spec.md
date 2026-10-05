@@ -108,8 +108,8 @@ estimates and are first-article measurements in `testing.md`.
   8 kB/s). A 20 s clip is 160 kB.
 - Module flash, 8 MB: two 1.75 MB application slots (OTA), 4.4 MB LittleFS. That holds about
   **8.5 minutes** of audio in total. U6 adds 16 MB, about 33 more
-  minutes, for roughly 40 minutes in total. **The firmware does not use U6 yet**: clips still go to
-  the module flash until a driver and second filesystem are added.
+  minutes, for roughly 40 minutes in total. The firmware fills U6 first and overflows to the module flash;
+  if U6 does not answer at start-up it uses the module flash alone.
 
 ## 7. Mechanical
 

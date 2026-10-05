@@ -16,7 +16,7 @@
 #define PIN_MIC_PWR       GPIO_NUM_41   /* powers the microphone; low = off */
 #define PIN_MIC_CLK       GPIO_NUM_42
 
-/* Optional external flash U6 (not fitted on Rev A boards) */
+/* External 16 MB clip flash U6 on SPI2 */
 #define PIN_FLASH_MISO    GPIO_NUM_10
 #define PIN_FLASH_CS      GPIO_NUM_11
 #define PIN_FLASH_SCK     GPIO_NUM_12

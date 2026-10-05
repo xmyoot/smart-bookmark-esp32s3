@@ -201,7 +201,7 @@
 		(uuid "1ff81ccf-75de-4f15-bc28-4c00beb0eed0")
 	)
 	(embedded_fonts no)
-	(model "C:/Users/USHEJIM/Documents/ThumbDriveBackup/KiCAD_Projects/smart-bookmark-esp32s3/lib/bookmark.3dshapes/SOT-23-6_L2.9-W1.6-H1.5-LS2.8-P0.95.wrl"
+	(model "${KIPRJMOD}/lib/bookmark.3dshapes/SOT-23-6_L2.9-W1.6-H1.5-LS2.8-P0.95.step"
 		(offset
 			(xyz 0 0 0)
 		)

@@ -63,8 +63,10 @@ User feedback on the placement: missing 3D models and a messy silkscreen. Positi
 - ERC 0/0, DRC 0 errors / 0 unconnected / 0 parity after the change.
 
 Not verified / open:
-- **Firmware support for U6 is not written**: clips still use the module flash. U6 must also be
-  put in deep power-down before sleep or it adds about 10 µA.
+- Firmware now uses U6 (`firmware/main/ext_flash.c`): clips go to U6 first, then overflow to the
+  module flash; U6 is put in deep power-down before sleep. Compiles; untested on hardware.
+- Proposal rewritten at the user's direction: US$25/h, 24 h, US$600 fixed across four
+  milestones; own work in days, board lead time attributed to JLCPCB.
 - W25Q128JV datasheet not downloaded; its standby figures in the spec are unverified.
 - CPL rotations have not been checked in JLCPCB's preview.
 - Vias are set to tented on both sides in the board file; the Gerbers themselves were not opened

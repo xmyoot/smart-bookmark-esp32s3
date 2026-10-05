@@ -378,7 +378,7 @@
 		(uuid "e3c79c85-5f8c-4432-bee4-c40125929501")
 	)
 	(embedded_fonts no)
-	(model "C:/Users/USHEJIM/Documents/ThumbDriveBackup/KiCAD_Projects/smart-bookmark-esp32s3/lib/bookmark.3dshapes/USB-C_SMD-TYPE-C-31-M-12_1.wrl"
+	(model "${KIPRJMOD}/lib/bookmark.3dshapes/USB-C_SMD-TYPE-C-31-M-12_1.step"
 		(offset
 			(xyz 0 0 0)
 		)

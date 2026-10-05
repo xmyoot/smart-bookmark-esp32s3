@@ -1,4 +1,5 @@
-/* Audio clips as files on the LittleFS "clips" partition: /fs/XXXXXXXX.bmk (hex clip id).
+/* Audio clips as LittleFS files named XXXXXXXX.bmk (hex clip id), on the external 16 MB flash
+ * first and on the module's "clips" partition once that is full (or if the chip is absent).
  * File = 16-byte header + IMA ADPCM blocks. Ids only ever increase, so the phone can use them
  * to recognise clips it already has. */
 #pragma once
@@ -28,6 +29,9 @@ typedef struct {
 } clip_info_t;
 
 esp_err_t clip_store_init(void);
+
+/* Unmount the external flash and put it in deep power-down. Call right before deep sleep. */
+void clip_store_shutdown(void);
 
 /* Start a new clip. Returns an open file positioned after a placeholder header, or NULL. */
 FILE *clip_create(uint32_t *id);

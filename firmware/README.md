@@ -39,17 +39,14 @@ plugging in USB. `platformio.ini` is provided as an alternative (`pio run -t upl
 | `main/app_main.c` | Wake, record, serve the phone, sleep |
 | `main/audio.c` | PDM microphone capture, DC removal, gain |
 | `main/adpcm.c` | IMA ADPCM encoder (WAV-compatible 256-byte blocks) |
-| `main/clip_store.c` | Clip files on the LittleFS partition |
+| `main/clip_store.c` | Clip files: external flash U6 first, then the module's own flash |
+| `main/ext_flash.c` | U6 on SPI2: probe, register as a partition, deep power-down for sleep |
 | `main/ble_xfer.c` | BLE service; protocol in `../docs/ble_protocol.md` |
 | `main/power.c` | Battery reading, USB / charger status, deep sleep |
 | `main/led.c` | LED patterns |
-| `partitions.csv` | 2 x 1.75 MB app slots (OTA-ready), 4.4 MB clip storage |
+| `partitions.csv` | 2 x 1.75 MB app slots (OTA-ready), 4.4 MB clip overflow storage |
 
 ## Status
-
-**The external 16 MB flash (U6) is not used yet.** Clips are stored on the module's own flash
-(about 8.5 minutes). Using U6 needs an `esp_flash` device on SPI2, a second LittleFS partition
-registered on it, and a deep power-down command before sleep.
 
 Written against the Rev A schematic. **Not yet run on hardware** (no boards exist yet); see
 `../docs/testing.md` for the bring-up order and the items to tune on the first article

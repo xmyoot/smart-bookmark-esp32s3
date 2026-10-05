@@ -3,3 +3,4 @@ build/
 *-backups/
 _autosave-*
 .history/
+delivery/

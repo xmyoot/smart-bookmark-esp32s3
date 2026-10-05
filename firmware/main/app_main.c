@@ -101,5 +101,6 @@ void app_main(void)
         vTaskDelay(pdMS_TO_TICKS(20));
     }
     led_set(LED_OFF);
+    clip_store_shutdown();
     power_deep_sleep();
 }
