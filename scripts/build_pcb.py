@@ -169,8 +169,8 @@ def apply_models(fps):
 # Only parts someone has to find by eye get a silkscreen designator, placed by hand in clear
 # board area. Passives keep theirs on the Fab layer (assembly drawing), centred on the part.
 SILK_REF = {   # ref: (x, y) of the text centre, top side
-    "U1": (18.5, 21.3), "U6": (5.9, 21.9), "SW1": (18.5, 29.2), "D1": (5.6, 12.4), "MK1": (33.2, 28.7),
-    "J1": (28.2, 36.9), "U2": (23.4, 38.9), "U3": (15.2, 49.4), "U4": (4.0, 39.4), "Q1": (4.0, 49.2),
+    "U1": (18.5, 21.75), "U6": (5.9, 21.9), "SW1": (18.5, 29.2), "D1": (5.6, 12.85), "MK1": (33.2, 28.7),
+    "J1": (27.3, 36.9), "U2": (23.4, 38.9), "U3": (15.2, 49.4), "U4": (4.0, 39.4), "Q1": (4.0, 49.2),
     "U5": (26.0, 47.25), "Q2": (9.9, 31.0), "Q3": (9.9, 40.7),
 }
 BACK_LABEL = {  # back-side pads are labelled with what they are, not their designator
@@ -193,6 +193,15 @@ def _text(b, s, x, y, layer, h=0.8, mirror=False):
     b.Add(t)
 
 def tidy_text(b, fps):
+    # U1 and J1 reach the board edge: drop the footprint silk lines that would be cut by it
+    for ref in ("U1", "J1"):
+        for g in list(fps[ref].GraphicalItems()):
+            if g.GetLayer() == pcbnew.F_SilkS:
+                bb = g.GetBoundingBox()
+                x0, y0 = mm(pcbnew.VECTOR2I(bb.GetLeft(), bb.GetTop()))
+                x1, y1 = mm(pcbnew.VECTOR2I(bb.GetRight(), bb.GetBottom()))
+                if x0 < 0.4 or y0 < 0.4 or x1 > W - 0.4 or y1 > H - 0.4:
+                    fps[ref].Remove(g)
     for ref, fp in fps.items():
         back = fp.IsFlipped()
         fab = pcbnew.B_Fab if back else pcbnew.F_Fab
@@ -240,8 +249,8 @@ def pad_xy(fps, ref, num):
 
 # =================================================================== PLACEMENT
 # Floorplan (top side, all assembled parts):
-#   y 0..4.55      antenna keep-out (module rule area, full board width, every layer)
-#   y 0..20.3      U1 centred; left strip = 3V3 decoupling + LED; right strip = EN RC + mic series parts
+#   y 0..5.0       antenna keep-out (module rule area, full board width, every layer)
+#   y 0..20.75     U1 centred; left strip = 3V3 decoupling + LED; right strip = EN RC + mic series parts
 #   y 21..29       left: optional flash U6 (DNP); right edge: microphone MK1 (port hole through the board)
 #   y 30..33       SW1 record button on the board centre line
 #   y 31..41       left of centre: battery sense (Q2/Q3)
@@ -250,15 +259,15 @@ def pad_xy(fps, ref, num):
 # Back side: nothing assembled. Cell lies in CELL; battery pads BT1/BT2 just below it; test pads in
 # the top-right strip and one (VBAT) at the bottom, all outside the cell footprint.
 TOP = {
-    "U1": (18.5, 9.8, 0),
+    "U1": (18.5, 10.25, 0),      # real module is 20.5 long: 0.4 mm past the footprint outline at the antenna end
     # 3V3 decoupling at module pin 3, LED
-    "C7": (8.6, 6.3, 180), "C8": (9.4, 8.1, 180), "R17": (8.6, 10.9, 180), "D1": (5.6, 10.9, 0),
+    "C7": (8.6, 6.3, 180), "C8": (9.4, 8.55, 180), "R17": (8.6, 11.35, 180), "D1": (5.6, 11.35, 0),
     # EN RC, mic series parts (rows match module pins 38 / 37)
-    "R13": (28.0, 6.4, 180), "C9": (27.97, 7.7, 0), "R15": (28.0, 12.35, 0), "R14": (30.5, 13.2, 0),
+    "R13": (28.0, 6.85, 180), "C9": (27.97, 8.15, 0), "R15": (28.0, 12.8, 0), "R14": (30.5, 13.65, 0),
     # microphone + decoupling on the VDD drop
     "MK1": (33.2, 26.0, 0), "C10": (34.5, 21.6, 0), "C11": (34.5, 22.9, 0),
     # optional flash (all DNP)
-    "U6": (8.0, 25.5, 0), "R16": (9.0, 19.3, 90), "R18": (3.4, 26.135, 0), "R19": (11.95, 24.0, 270),
+    "U6": (8.0, 25.5, 0), "R16": (9.0, 19.75, 90), "R18": (3.4, 26.135, 0), "R19": (11.95, 24.0, 270),
     "C12": (9.7, 21.8, 180),
     # button
     "SW1": (18.5, 31.5, 0),
@@ -320,13 +329,13 @@ def overlaps(fps):
     for i, (ra, fa) in enumerate(items):
         a = cy_bbox(fa)
         if ra == "U1":
-            a = (10.55, 0.0, 26.45, 20.29)
+            a = (10.55, 0.0, 26.45, 20.74)
         for rb, fb in items[i + 1:]:
             if fa.IsFlipped() != fb.IsFlipped():
                 continue
             c = cy_bbox(fb)
             if rb == "U1":
-                c = (10.55, 0.0, 26.45, 20.29)
+                c = (10.55, 0.0, 26.45, 20.74)
             if a[0] < c[2] - 0.005 and c[0] < a[2] - 0.005 and a[1] < c[3] - 0.005 and c[1] < a[3] - 0.005:
                 out.append((ra, rb))
     return out
@@ -338,7 +347,7 @@ if __name__ == "__main__":
     report(b, fps, ROOT / "build" / "placement.json")
     print("courtyard overlaps:", overlaps(fps))
     off = [r for r, fp in fps.items() if not fp.IsFlipped() and r not in ("U1", "J1")
-           and (cy_bbox(fp)[0] < 0.3 or cy_bbox(fp)[1] < 4.55 or cy_bbox(fp)[2] > W - 0.3 or cy_bbox(fp)[3] > H - 0.3)]
+           and (cy_bbox(fp)[0] < 0.3 or cy_bbox(fp)[1] < 5.0 or cy_bbox(fp)[2] > W - 0.3 or cy_bbox(fp)[3] > H - 0.3)]
     print("outside board / in antenna strip:", off)
     if stage == "route":
         import route_pcb

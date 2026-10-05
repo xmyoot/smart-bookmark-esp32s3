@@ -14,6 +14,10 @@ overwrites anything changed in the KiCad GUI.
 | Pin check | `python scripts/check_netlist.py build/bookmark.net` | must report 0 mismatches |
 | Schematic pictures | `python scripts/sch_png.py` | `build/schematic.pdf`, `build/sch_p*.png` |
 | Placement | `"C:\Program Files\KiCad\10.0\bin\python.exe" scripts/build_pcb.py place` | `*.kicad_pcb`, `build/placement.json` |
+| Routed board | `"C:\Program Files\KiCad\10.0\bin\python.exe" scripts/build_pcb.py route` | placement + tracks + zones |
+| DRC | `python scripts/drc.py` | `build/drc.rpt`; refills zones and saves the board |
+| Fab package | `python scripts/make_fab.py` | `fab/` |
+| 3D pictures | `python scripts/render3d.py` | `build/render_*.png` |
 | Board pictures | `python scripts/review.py NAME "F.Cu,F.Fab,Edge.Cuts"` (add `--mirror` for the back) | `build/NAME.png` |
 
 `kicad-cli` is `C:\Program Files\KiCad\10.0\bin\kicad-cli.exe`. `build_pcb.py` must run under

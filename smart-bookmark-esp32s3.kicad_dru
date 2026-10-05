@@ -1,0 +1,7 @@
+(version 1)
+
+# T3902 microphone: the ground ring around the sound port is 0.198 mm from the 0.5 mm port hole
+# in the vendor land pattern. Allow it for this footprint only; everything else keeps 0.2 mm.
+(rule mic_port_ring
+	(condition "A.memberOfFootprint('MK1') && B.memberOfFootprint('MK1')")
+	(constraint hole_clearance (min 0.15mm)))

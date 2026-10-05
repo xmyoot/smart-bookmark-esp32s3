@@ -8,8 +8,9 @@
 | Pin map against datasheets | `scripts/check_netlist.py` (153 pins typed from the datasheet tables) | 0 mismatches, 0 single-pin nets |
 | Parts in stock | `scripts/jlc_search.py` | Every BOM line in stock at JLCPCB |
 | Placement | `scripts/build_pcb.py place` | 52 footprints, no courtyard overlaps, nothing in the antenna strip |
-| Routing, DRC, schematic parity | — | **Not done yet** (waiting for placement review) |
-| Fabrication files | — | **Not done yet** |
+| Routing, DRC, schematic parity | `scripts/build_pcb.py route`, then `scripts/drc.py` | 0 errors, 0 unconnected, 0 parity issues; 2 expected `lib_footprint_mismatch` warnings (U1, J1) |
+| Fabrication files | `scripts/make_fab.py` | Gerbers (4 copper layers) + drill, BOM 23 lines / 38 parts, CPL 38 rows, STEP, PDFs in `fab/` |
+| CPL rotations | JLCPCB placement preview | **Not checked**: must be reviewed when the order is placed |
 | Firmware build | `pio run` in `firmware/` (ESP-IDF 6.1.0) | Success: 560 kB image (30 % of the app slot), RAM 8 %, one deprecation warning. Not run on hardware |
 
 ## B. First-article bring-up (to do when boards arrive)

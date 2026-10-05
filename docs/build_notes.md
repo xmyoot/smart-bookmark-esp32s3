@@ -13,7 +13,7 @@ Placement table: `scripts/build_pcb.py` (`TOP`, `BACK`). Pad positions: `build/p
 | B.Cu | Battery and test pads, +BATT and VBUS trunks, the few signals that must cross; GND pour |
 
 0.8 mm, 4 layers. Tracks 0.2 mm signal, 0.4 mm +BATT / VBUS; clearance 0.15 mm; vias 0.5 / 0.3 mm
-(0.6 / 0.3 where there is room); copper to edge 0.3 mm. No copper on any layer for y < 4.55 mm
+(0.6 / 0.3 where there is room); copper to edge 0.3 mm. No copper on any layer for y < 5.0 mm
 (module antenna rule area).
 
 ## 2. Why the parts sit where they do
@@ -29,22 +29,22 @@ Placement table: `scripts/build_pcb.py` (`TOP`, `BACK`). Pad positions: `build/p
 - **Protection, charger, LDO along the bottom**: next to the battery pads and the USB input.
 - **Nothing assembled on the back**: lowest assembly cost and a flat surface for the cell.
 
-## 3. Routing plan (not yet executed)
+## 3. Routing as built (`scripts/route_pcb.py`)
 
 Top layer, no crossings by construction:
 
-- **Mic** (right strip): module pin 38 → R15 → along y 12.35 → down x 36.0 → MK1 pad 4 from the right.
-  Pin 37 → R14 → along y 13.2 → down x 34.04 through C10/C11 pad 1 → MK1 pad 5.
-  Pin 36 → along y 14.05 → down x 32.36 → MK1 pad 1. C10/C11 ground via at about (35.1, 23.85).
+- **Mic** (right strip): module pin 38 → R15 → along y 12.8 → down x 36.0 → MK1 pad 4 from the right.
+  Pin 37 → R14 → along y 13.65 → down x 34.02 through C10/C11 pad 1 → MK1 pad 5.
+  Pin 36 → along y 14.5 → down x 32.36 → MK1 pad 1. C10/C11 ground via at about (35.1, 23.85).
 - **USB**: pins 23 (D−) and 24 (D+) leave downward, 45° to x 22.4 / 23.0, straight down right of
   SW1 to U2 pads 6 / 4. Through U2 under its body to pads 1 / 3, then to J1: D+ pads B6/A6 joined by a
   U on the pad-row's left (x 29.1), D− pads A7/B7 joined by a U on the right (x 31.4).
-  CC1 → R1, CC2 → R2 in the 26–29.5 mm channel. VBUS pads → vias at (28.3, 39.05) and (28.3, 43.95).
+  CC1 → R1, CC2 → R2 in the 26–29.5 mm channel. VBUS pads → vias at (28.7, 38.95) and (28.7, 44.05).
 - **Power status trio** from pins 20, 21, 22 down the left of SW1 at x 14.3 / 14.8 / 15.3:
   BAT_SENSE_EN → Q3 gate and R10; CHG_STAT_N → U3 pad 1 from above; VBUS_DET → under SW1 at y 34 →
   down x 19.6 → R5/R6 junction.
 - **Flash** (DNP): pins 16 / 17 down at x 13.0 / 13.5 into U6 pads 6 / 5; pins 14 / 15 left along
-  y 17.45 / 18.3, down x 3.8 / 4.4 into U6 pads 2 / 1.
+  y 17.9 / 18.75, down x 3.8 / 4.4 into U6 pads 2 / 1.
 - **Protection**: OD and BAT_N are straight vertical links U4 ↔ Q1; OC goes round the right at x 8.2;
   VM straight to R8; R7/C3 stacked on the left edge.
 - **Battery sense**: gate link Q3 → Q2 goes round the left at x 7.7; R11/R12/C6 stacked at x 13.0.
@@ -52,14 +52,29 @@ Top layer, no crossings by construction:
 
 Bottom layer:
 
-- +BATT: BT1 → via at C2/U3; BT1 → up x 11.5 → Q2 source via, R9/R7 via; TP7.
-- VBUS: (28.3, 39.05)–(28.3, 43.95), across y 41.5 to the U2 via, down x 22.0 to y 46.6, left to the
-  via at U3 pad 4 / C1.
+- +BATT: BT1 → via at C2/U3; BT1 → up x 10.6 → Q2 source via → via on the R9/R7 link; TP7.
+- VBUS: (28.7, 38.95)–(28.7, 44.05), across y 43.0 with a stub up to the via under U2, down x 22.0
+  to y 46.6, left to the via at U3 pad 4 / C1.
 - BTN (left strip via → SW1), BAT_ADC (left strip via → C6), BOOT (left strip via → along y 8.5
   under the module → TP4), EN / TX / RX (vias beside the module → their test pads).
 
 Back pads must not have a via of another net inside them: BT1 (10.25–12.75, 43.35–45.85),
 BT2 (2.25–4.75, 43.0–45.5), test pads 1.5 mm round.
+
+Result: DRC 0 errors, 0 unconnected, 0 schematic-parity issues. Two warnings remain and are
+expected: `lib_footprint_mismatch` on U1 and J1, because their 3D models were replaced and the
+silkscreen lines that the board edge would cut were removed. 55 ground stitching vias are added
+automatically wherever every layer is clear.
+
+Two things found on the way:
+
+- **The module is 0.4 mm longer than KiCad's footprint outline** at the antenna end (20.5 mm real,
+  20.1 mm drawn). It is placed 0.45 mm lower than first planned so the real part stays inside
+  the board.
+- **The T3902 land pattern's port hole was a plated pad with no copper** and its ground ring is
+  four separate pads 0.198 mm from the hole. The hole is now non-plated, each ring segment is
+  tied to ground, and a footprint-local rule in `smart-bookmark-esp32s3.kicad_dru` allows the
+  ring-to-hole spacing.
 
 ## 4. Things to check on the first board
 

@@ -117,7 +117,7 @@ estimates and are first-article measurements in `testing.md`.
 | Tallest top-side part | J1, 3.26 mm. Module 2.4 mm, button 2.0 mm |
 | Stack at the module | 0.8 board + 2.4 module + 2.5 cell = 5.7 mm of an assumed 6.0 mm |
 | Stack at J1 | 0.8 + 3.26 = 4.06 mm; the cell must not sit behind J1 (it does not) |
-| Antenna | Module antenna at the top edge. No copper on any layer for y < 4.55 mm. Keep the cell and any metal at least 5 mm from this end |
+| Antenna | Module antenna at the top edge. No copper on any layer for y < 5.0 mm. Keep the cell and any metal at least 5 mm from this end |
 | Cell area on the back | x 1.5–26.5, y 10–40 mm [ASSUMED Q5]. No pads or holes under it; vias are tented |
 | Mic port | 0.5 mm hole through the board at (33.2, 26.7), outside the cell area |
 

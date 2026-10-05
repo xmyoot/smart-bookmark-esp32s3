@@ -39,17 +39,28 @@ Assumptions that drive the layout (all in `client_request.md`): 6 mm interior he
 right long edge, button on the centre line, mic port through the board to the back, 25 x 30 x 2.5 mm
 cell at x 1.5–26.5, y 10–40 on the back.
 
+## 2026-10-05 — session 1, continued: placement review, routing, fab package
+
+User feedback on the placement: missing 3D models and a messy silkscreen. Positions accepted.
+
+- 3D models: module and USB-C from LCSC STEP files in `lib/bookmark.3dshapes`; mic uses KiCad's
+  Knowles model of the same package as a stand-in. Silkscreen: MPN/LCSC fields hidden, designators
+  on silk only for 13 hand-placed parts, passives on Fab, function labels on the back pads.
+- Module moved 0.45 mm down (the real part is longer than the footprint outline).
+- Routing in `scripts/route_pcb.py`, first pass had no clearance errors. Fixed: mic port hole made
+  non-plated, ring segments tied to ground, footprint-local hole-clearance rule; zones need
+  `kicad-cli pcb drc --refill-zones` after the scripted fill (the scripted fill ignored edge and
+  hole clearances).
+- DRC 0 errors / 0 unconnected / 0 parity. Fab package in `fab/`.
+
 Not verified / open:
-- **Routing, DRC, fab outputs: not started.** Waiting for the user's review of the placement.
+- CPL rotations have not been checked in JLCPCB's preview.
+- Vias are set to tented on both sides in the board file; the Gerbers themselves were not opened
+  in a viewer. Worth a look before ordering, since the cell lies on the back.
 - Firmware has not run on hardware. PDM slot (left/right) for SELECT = GND is the item most
   likely to need a one-line change on the first article.
 - T3902 land pattern is the LCSC/EasyEDA import; compare with the datasheet drawing.
 - USB-C shell overhang (1.0 mm) is a guess until the enclosure wall thickness is known.
 - Active current figures in the spec are estimates.
 - Proposal prices, dates and the answers to client questions 1 and 2 are blanks for the user.
-
-Next:
-1. User reviews placement (`docs/placement_top.png`, `docs/placement_back.png`).
-2. Routing (`scripts/route_pcb.py`, to be written from the plan in `build_notes.md` section 3),
-   zones (In1 GND, In2 +3V3, GND pours top and bottom), DRC to 0.
-3. Fab package (`make_fab.py`, still the unadapted HAB copy, untracked), `designBrief.html`.
+- `designBrief.html` not written (`scripts/make_brief.py` is still the unadapted HAB copy).
